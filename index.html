@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1a2d">
+  <meta name="description" content="Peta konsep interaktif struktur kekuasaan kehakiman Republik Indonesia berdasarkan UUD 1945 dan peraturan perundang-undangan.">
+  <title>Peta Kekuasaan Kehakiman Indonesia</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy-950: #081426;
+      --navy-900: #0c1a2d;
+      --navy-800: #142740;
+      --navy-700: #1c3858;
+      --ink: #17283a;
+      --muted: #627184;
+      --paper: #f5f4ef;
+      --white: #fffefa;
+      --line: #dce2e4;
+      --gold: #c8a86b;
+      --gold-light: #ead8af;
+      --teal: #4c8e89;
+      --shadow: 0 22px 56px rgba(13, 30, 49, .12);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    button, a { font: inherit; }
+    a { color: inherit; }
+    button:focus-visible, a:focus-visible, dialog button:focus-visible {
+      outline: 3px solid #ddb967;
+      outline-offset: 4px;
+    }
+    .shell { width: min(1160px, calc(100% - 44px)); margin-inline: auto; }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 590px;
+      color: #f8f6f1;
+      background-color: #081426;
+      background-image:
+        linear-gradient(90deg, rgba(7, 18, 33, .94) 0%, rgba(10, 24, 42, .80) 48%, rgba(8, 20, 36, .38) 100%),
+        linear-gradient(0deg, rgba(7, 18, 33, .48), transparent 42%),
+        url("./gedung-pengadilan-kota-tua.jpeg");
+      background-size: cover;
+      background-position: center 56%;
+      background-repeat: no-repeat;
+    }
+    .hero::before, .hero::after {
+      position: absolute; z-index: -1; content: ""; pointer-events: none;
+    }
+    .hero::before {
+      width: 530px; height: 530px; right: -180px; top: -300px;
+      border: 1px solid rgba(232, 209, 162, .13); border-radius: 50%;
+      box-shadow: 0 0 0 48px rgba(232, 209, 162, .025), 0 0 0 98px rgba(232, 209, 162, .02);
+    }
+    .hero::after {
+      inset: auto 0 0; height: 120px;
+      background: linear-gradient(0deg, rgba(5, 13, 24, .32), transparent);
+    }
+    .topbar { display: flex; align-items: center; justify-content: space-between; padding-block: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+    .brand-mark {
+      display: grid; width: 39px; height: 39px; place-items: center;
+      border: 1px solid rgba(226, 202, 151, .58); border-radius: 12px; color: var(--gold-light);
+    }
+    .brand-mark svg { width: 23px; height: 23px; }
+    .brand-name { font-size: .83rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .topbar-note { color: #c4ccd2; font-size: .79rem; letter-spacing: .06em; }
+    .hero-content { display: grid; grid-template-columns: minmax(0, 740px); align-items: center; gap: 30px; padding: 60px 0 112px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--gold-light); font-size: .75rem; font-weight: 750; letter-spacing: .19em; text-transform: uppercase; }
+    .eyebrow::before { width: 30px; height: 1px; content: ""; background: var(--gold); }
+    h1 { max-width: 650px; margin: 20px 0 18px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.6rem, 5.4vw, 4.7rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.04; }
+    .hero-subtitle { max-width: 530px; margin: 0; color: #c9d1d8; font-size: 1.04rem; }
+    .hero-subtitle strong { color: #f1e5c9; font-weight: 600; }
+    .hero-actions { display: flex; align-items: center; gap: 18px; margin-top: 32px; }
+    .button-primary {
+      display: inline-flex; align-items: center; gap: 11px; padding: 13px 18px;
+      border: 1px solid var(--gold); border-radius: 9px; background: var(--gold);
+      color: #142238; text-decoration: none; font-size: .9rem; font-weight: 750;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .16); transition: transform .2s ease, background .2s ease;
+    }
+    .button-primary:hover { transform: translateY(-2px); background: #dfc58f; }
+    .hero-micro { color: #b9c4ce; font-size: .82rem; }
+    .hero-visual { position: relative; min-width: 0; }
+    .court-art { display: block; width: 100%; filter: drop-shadow(0 26px 42px rgba(0, 0, 0, .22)); }
+    .art-caption {
+      position: absolute; right: 4%; bottom: 2%; display: flex; align-items: center; gap: 10px;
+      padding: 9px 13px; border: 1px solid rgba(225, 210, 178, .25); border-radius: 100px;
+      background: rgba(8, 20, 38, .68); color: #d5d9dc; font-size: .72rem; backdrop-filter: blur(8px);
+    }
+    .art-caption::before { width: 7px; height: 7px; border-radius: 50%; content: ""; background: var(--gold); }
+
+    .summary-band { position: relative; z-index: 1; margin-top: -44px; }
+    .summary-grid { display: grid; grid-template-columns: 1.35fr repeat(3, 1fr); overflow: hidden; border: 1px solid #e9e4d8; border-radius: 15px; background: var(--white); box-shadow: var(--shadow); }
+    .summary-intro, .summary-stat { min-height: 102px; padding: 22px 25px; }
+    .summary-intro { background: #fbfaf6; }
+    .summary-intro strong { display: block; margin-bottom: 3px; color: var(--navy-900); font-family: Georgia, serif; font-size: 1.1rem; font-weight: 500; }
+    .summary-intro span, .summary-stat span { color: var(--muted); font-size: .78rem; }
+    .summary-stat { display: flex; align-items: center; gap: 13px; border-left: 1px solid #eeeae0; }
+    .stat-number { color: var(--navy-800); font-family: Georgia, serif; font-size: 2rem; line-height: 1; }
+    .stat-label { display: flex; flex-direction: column; }
+    .stat-label strong { font-size: .84rem; }
+
+    main { padding: 90px 0 78px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 30px; }
+    .section-kicker { margin: 0 0 8px; color: #8c7446; font-size: .73rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    h2 { margin: 0; color: var(--navy-900); font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 3.3vw, 3rem); font-weight: 500; letter-spacing: -.035em; line-height: 1.12; }
+    .section-description { max-width: 390px; margin: 0 0 2px; color: var(--muted); font-size: .91rem; }
+    .map-frame { overflow: hidden; border: 1px solid #e2e1da; border-radius: 20px; background: #fbfaf7; box-shadow: 0 14px 46px rgba(24, 39, 54, .055); }
+    .map-topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 22px; border-bottom: 1px solid #ecebe5; background: rgba(255, 255, 255, .6); }
+    .map-topline p { margin: 0; color: var(--muted); font-size: .8rem; }
+    .map-topline strong { color: var(--navy-800); }
+    .map-hint { display: inline-flex; align-items: center; gap: 8px; color: #8d7445; font-size: .75rem; font-weight: 700; white-space: nowrap; }
+    .map-hint svg { width: 16px; height: 16px; }
+    .diagram { padding: 36px 30px 38px; }
+    .node {
+      position: relative; display: flex; width: 100%; min-height: 77px; flex-direction: column; align-items: flex-start; justify-content: center;
+      padding: 15px 17px; border: 1px solid #dce2e4; border-radius: 13px; background: var(--white); color: var(--ink); text-align: left;
+      box-shadow: 0 4px 12px rgba(26, 45, 62, .035); cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .node:hover { z-index: 1; transform: translateY(-3px); border-color: #b79556; background: #fffdf8; box-shadow: 0 12px 24px rgba(27, 45, 62, .11); }
+    .node-title { display: block; color: var(--navy-900); font-size: .93rem; font-weight: 750; line-height: 1.3; }
+    .node-caption { display: block; margin-top: 5px; color: var(--muted); font-size: .73rem; line-height: 1.35; }
+    .node-kicker { display: block; margin-bottom: 6px; color: #927447; font-size: .63rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .node-root { width: min(410px, 100%); min-height: 91px; align-items: center; margin: 0 auto; border-color: #cfb77f; background: var(--navy-900); text-align: center; box-shadow: 0 12px 26px rgba(12, 26, 45, .18); }
+    .node-root .node-title { color: #fffdf8; font-family: Georgia, serif; font-size: 1.2rem; font-weight: 500; }
+    .node-root .node-caption { color: #c1cbd3; }
+    .node-principal { min-height: 102px; border-top: 3px solid #b8975c; }
+    .node-principal.mk { border-top-color: #54799c; }
+    .node-principal.ky { border-style: dashed; border-top: 3px dashed #4c8e89; background: #f7fbf9; }
+    .node-environment { min-height: 69px; border-color: #d5ddd9; background: #f6f9f6; }
+    .node-tier { min-height: 66px; padding: 12px 14px; }
+    .node-special { min-height: 58px; border-style: dashed; background: #fcf9f1; }
+    .node-connector { width: 1px; height: 26px; margin: 0 auto; background: #c5b793; }
+    .node-connector::after { display: block; width: 7px; height: 7px; margin: 20px 0 0 -3px; transform: rotate(45deg); border-right: 1px solid #aa9469; border-bottom: 1px solid #aa9469; content: ""; }
+    .root-connector { height: 31px; }
+    .principals { position: relative; display: grid; grid-template-columns: 1fr 1.12fr 1fr; align-items: stretch; gap: 18px; max-width: 950px; margin: 0 auto; padding-top: 22px; }
+    .principals::before { position: absolute; top: 0; right: 16.7%; left: 16.7%; height: 1px; content: ""; background: #c5b793; }
+    .principal-slot { position: relative; }
+    .principal-slot::before { position: absolute; top: -22px; left: 50%; width: 1px; height: 22px; content: ""; background: #c5b793; }
+    .principal-slot.support::before { height: 22px; background: repeating-linear-gradient(to bottom, #65a49d 0 4px, transparent 4px 8px); }
+    .principal-slot.support .support-tag { display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; color: #3e7975; font-size: .67rem; font-weight: 750; }
+    .principal-slot.support .support-tag::before { width: 13px; border-top: 1px dashed #4c8e89; content: ""; }
+    .ma-branches { position: relative; margin-top: 31px; padding-top: 29px; border-top: 1px solid #e6e3db; }
+    .ma-branches::before { position: absolute; top: -31px; left: 50%; height: 30px; border-left: 1px solid #c5b793; content: ""; }
+    .ma-label { position: relative; margin: 0 auto 36px; color: #7e6b48; font-size: .71rem; font-weight: 800; letter-spacing: .14em; text-align: center; text-transform: uppercase; }
+    .environment-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; }
+    .environment { position: relative; display: flex; min-width: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 13px; border: 1px solid #e2e5df; border-radius: 15px; background: rgba(255, 255, 255, .55); }
+    .environment::before { position: absolute; top: -30px; left: 50%; height: 29px; border-left: 1px solid #c5b793; content: ""; }
+    .environment::after { position: absolute; top: -31px; right: 12.5%; left: 12.5%; height: 1px; content: ""; background: #c5b793; }
+    .environment:first-child::after { left: 50%; }
+    .environment:last-child::after { right: 50%; }
+    .environment-name { margin: 0 0 11px; color: var(--navy-800); font-size: .68rem; font-weight: 850; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+    .flow-arrow { display: grid; height: 21px; place-items: center; color: #9b885f; font-size: .9rem; line-height: 1; }
+    .special-note { margin: 9px 1px 0; color: #887750; font-size: .65rem; line-height: 1.4; text-align: center; }
+    .diagram-note { display: flex; align-items: flex-start; gap: 11px; margin-top: 28px; padding: 14px 16px; border: 1px solid #e7dfcf; border-radius: 11px; background: #f8f5ec; color: #665d4d; font-size: .77rem; }
+    .diagram-note svg { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 1px; color: #a0834b; }
+    .diagram-note strong { color: #493e2b; }
+    .legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 17px; color: #697687; font-size: .72rem; }
+    .legend-item { display: inline-flex; align-items: center; gap: 7px; }
+    .legend-line { width: 21px; border-top: 1px solid #b4a27d; }
+    .legend-line.dashed { border-top-style: dashed; border-color: #4c8e89; }
+    .legend-swatch { width: 11px; height: 11px; border: 1px solid #c8a86b; border-radius: 3px; background: var(--navy-900); }
+
+    .guide-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: start; margin-top: 82px; }
+    .guide-copy { position: sticky; top: 24px; }
+    .guide-copy p:not(.section-kicker) { max-width: 390px; color: var(--muted); font-size: .93rem; }
+    .guide-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .guide-item { min-height: 142px; padding: 19px; border: 1px solid #e4e3dc; border-radius: 14px; background: rgba(255, 255, 255, .64); }
+    .guide-num { display: grid; width: 27px; height: 27px; place-items: center; margin-bottom: 13px; border-radius: 8px; background: #eee8da; color: #80683c; font-family: Georgia, serif; font-size: .9rem; }
+    .guide-item strong { display: block; margin-bottom: 5px; color: var(--navy-900); font-size: .88rem; }
+    .guide-item span { color: var(--muted); font-size: .77rem; }
+
+    .footer { padding: 27px 0 34px; border-top: 1px solid #e1e1da; color: #697687; font-size: .75rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .footer a { color: #365974; text-decoration-color: #a9b8c4; text-underline-offset: 3px; }
+
+    dialog {
+      width: min(600px, calc(100% - 28px)); max-width: none; max-height: min(82vh, 760px); padding: 0; overflow: auto;
+      border: 1px solid rgba(217, 206, 181, .75); border-radius: 18px; background: #fffefa; color: var(--ink);
+      box-shadow: 0 28px 90px rgba(2, 9, 20, .34);
+    }
+    dialog::backdrop { background: rgba(6, 16, 29, .68); backdrop-filter: blur(5px); }
+    .modal-head { position: relative; padding: 27px 31px 23px; background: var(--navy-900); color: #fffefa; }
+    .modal-head::after { position: absolute; right: 0; bottom: 0; left: 0; height: 3px; content: ""; background: linear-gradient(90deg, var(--gold), rgba(200, 168, 107, .08)); }
+    .modal-kicker { margin: 0 0 8px; color: var(--gold-light); font-size: .68rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .modal-head h2 { max-width: 470px; margin: 0; color: #fffefa; font-size: clamp(1.55rem, 4vw, 2.15rem); }
+    .modal-close { position: absolute; top: 17px; right: 17px; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid rgba(255, 255, 255, .25); border-radius: 10px; background: transparent; color: #fff; cursor: pointer; transition: background .15s ease; }
+    .modal-close:hover { background: rgba(255, 255, 255, .13); }
+    .modal-close svg { width: 17px; height: 17px; }
+    .modal-body { padding: 25px 31px 30px; }
+    .source-copy { color: #475769; font-size: .87rem; line-height: 1.72; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .source-heading { color: var(--navy-900); font-weight: 800; }
+    .source-marker { color: #8d7445; font-weight: 800; }
+    .detail-block { padding: 0 0 18px; margin: 0 0 18px; border-bottom: 1px solid #ecebe5; }
+    .detail-block:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
+    .detail-block h3 { display: flex; align-items: center; gap: 9px; margin: 0 0 8px; color: #8d7445; font-size: .72rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+    .detail-block h3::before { width: 17px; height: 1px; content: ""; background: #c8a86b; }
+    .detail-block p, .detail-block li { color: #475769; font-size: .88rem; }
+    .detail-block p { margin: 0; }
+    .detail-block ul { display: grid; gap: 7px; margin: 0; padding-left: 19px; }
+    .detail-block li::marker { color: #bc9c60; }
+    .law-chip { display: inline-block; margin: 4px 5px 0 0; padding: 4px 8px; border: 1px solid #e8e0cf; border-radius: 99px; background: #faf7f0; color: #65573c; font-size: .73rem; }
+
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: minmax(0, 740px); gap: 8px; }
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+      .summary-stat:nth-child(2) { border-left: 0; }
+      .summary-stat:nth-child(n+3) { border-top: 1px solid #eeeae0; }
+      .environment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 15px; }
+      .environment::after { right: 25%; left: 25%; }
+      .environment:nth-child(2)::after { right: 50%; }
+      .environment:nth-child(3)::after { left: 50%; }
+      .guide-section { gap: 28px; }
+    }
+    @media (max-width: 650px) {
+      .shell { width: min(100% - 30px, 540px); }
+      .hero { min-height: 0; }
+      .topbar { padding-block: 17px; }
+      .topbar-note { display: none; }
+      .hero-content { grid-template-columns: 1fr; padding: 42px 0 82px; }
+      .hero-copy { position: relative; z-index: 1; }
+      h1 { max-width: 540px; margin-top: 17px; font-size: clamp(2.5rem, 12vw, 3.7rem); }
+      .hero-subtitle { font-size: .93rem; }
+      .hero-visual { width: min(100%, 460px); margin: 4px auto -22px; opacity: .88; }
+      .court-art { max-height: 260px; }
+      .art-caption { right: 1%; bottom: -2%; font-size: .65rem; }
+      .hero-actions { flex-wrap: wrap; gap: 13px; margin-top: 24px; }
+      .summary-band { margin-top: -28px; }
+      .summary-grid { grid-template-columns: 1fr 1fr; border-radius: 13px; }
+      .summary-intro, .summary-stat { min-height: 86px; padding: 16px; }
+      .summary-intro { grid-column: 1 / -1; }
+      .summary-intro strong { font-size: 1rem; }
+      .summary-stat:nth-child(2) { border-top: 1px solid #eeeae0; }
+      .summary-stat:nth-child(3) { border-top: 1px solid #eeeae0; border-left: 1px solid #eeeae0; }
+      .summary-stat:nth-child(4) { grid-column: 1 / -1; border-left: 0; }
+      .stat-number { font-size: 1.7rem; }
+      main { padding: 66px 0 58px; }
+      .section-heading { display: block; margin-bottom: 21px; }
+      .section-description { margin-top: 12px; font-size: .84rem; }
+      .map-topline { align-items: flex-start; padding: 14px 16px; }
+      .map-topline p { max-width: 240px; font-size: .74rem; }
+      .map-hint { font-size: .68rem; }
+      .diagram { padding: 27px 16px 25px; }
+      .principals { grid-template-columns: 1fr; gap: 29px; padding-top: 0; }
+      .principals::before { display: none; }
+      .principal-slot { width: min(100%, 390px); margin-inline: auto; }
+      .principal-slot::before { top: -29px; height: 29px; }
+      .principal-slot:first-child::before { display: none; }
+      .ma-branches { margin-top: 27px; padding-top: 24px; }
+      .ma-branches::before { top: -27px; height: 26px; }
+      .environment-grid { grid-template-columns: 1fr; gap: 27px; }
+      .environment { width: min(100%, 410px); margin-inline: auto; padding: 14px; }
+      .environment::before { top: -28px; height: 27px; }
+      .environment::after { display: none; }
+      .environment:first-child::before { display: none; }
+      .environment-name { font-size: .7rem; }
+      .node-tier { min-height: 62px; }
+      .diagram-note { font-size: .73rem; }
+      .legend { gap: 11px 15px; }
+      .guide-section { grid-template-columns: 1fr; gap: 16px; margin-top: 59px; }
+      .guide-copy { position: static; }
+      .guide-copy p:not(.section-kicker) { margin-bottom: 6px; }
+      .guide-list { gap: 9px; }
+      .guide-item { min-height: 136px; padding: 15px; }
+      .guide-item span { font-size: .73rem; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .modal-head { padding: 24px 24px 20px; }
+      .modal-close { top: 13px; right: 13px; }
+      .modal-body { padding: 22px 24px 25px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="shell">
+      <nav class="topbar" aria-label="Navigasi utama">
+        <a class="brand" href="#beranda" aria-label="Ruang Belajar Konstitusi, beranda">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3.5 20.5h17M5.5 17.5h13M7 17.5V9m3.3 8.5V9m3.4 8.5V9m3.3 8.5V9M4.5 8.5 12 4l7.5 4.5h-15Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21.5h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </span>
+          <span class="brand-name">Ruang Belajar Konstitusi</span>
+        </a>
+        <span class="topbar-note">Sistem Ketatanegaraan · Republik Indonesia</span>
+      </nav>
+
+      <div class="hero-content" id="beranda">
+        <div class="hero-copy">
+          <p class="eyebrow">Peta konsep interaktif</p>
+          <h1>Peta Konsep &amp; Struktur Kekuasaan Kehakiman Republik Indonesia</h1>
+          <p class="hero-subtitle">Memahami lembaga, jenjang, dan kewenangan peradilan <strong>berdasarkan Pasal 24 UUD 1945 dan UU No. 48 Tahun 2009.</strong></p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#peta">Jelajahi struktur <span aria-hidden="true">↘</span></a>
+            <span class="hero-micro">Pilih kotak untuk membaca penjelasan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="shell summary-band" aria-label="Ringkasan struktur">
+    <div class="summary-grid">
+      <div class="summary-intro"><strong>Satu sistem, peran yang berbeda</strong><span>Kenali siapa yang mengadili dan siapa yang menjaga integritas hakim.</span></div>
+      <div class="summary-stat"><span class="stat-label"><strong>Pelaku kekuasaan kehakiman</strong><span>MA dan MK</span></span></div>
+      <div class="summary-stat"><span class="stat-label"><strong>Lingkungan di bawah MA</strong><span>Umum · Agama · Militer · TUN</span></span></div>
+      <div class="summary-stat"><span class="stat-label"><strong>Lembaga penunjang</strong><span>Komisi Yudisial</span></span></div>
+    </div>
+  </div>
+
+  <main class="shell">
+    <section id="peta" aria-labelledby="map-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">Bagan kelembagaan</p><h2 id="map-title">Telusuri peta peradilan</h2></div>
+        <p class="section-description">Struktur memperlihatkan hubungan konstitusional serta empat lingkungan peradilan yang berpuncak pada Mahkamah Agung.</p>
+      </div>
+
+      <div class="map-frame">
+        <div class="map-topline"><p><strong>Petunjuk:</strong> klik atau fokuskan kotak, lalu tekan Enter untuk membuka panel informasi.</p><span class="map-hint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4M11 8v.2m0 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Semua kotak dapat dipilih</span></div>
+        <div class="diagram">
+          <button class="node node-root" type="button" data-detail="kekuasaan">
+            <span class="node-kicker">Puncak prinsip konstitusional</span><span class="node-title">Kekuasaan Kehakiman</span><span class="node-caption">Pasal 24 UUD 1945 · merdeka untuk menegakkan hukum dan keadilan</span>
+          </button>
+          <div class="node-connector root-connector" aria-hidden="true"></div>
+          <div class="principals">
+            <div class="principal-slot">
+              <button class="node node-principal mk" type="button" data-detail="mk"><span class="node-kicker">Pelaku kekuasaan kehakiman</span><span class="node-title">Mahkamah Konstitusi <span aria-hidden="true">·</span> MK</span><span class="node-caption">Mengawal konstitusi · tingkat pertama dan terakhir</span></button>
+            </div>
+            <div class="principal-slot">
+              <button class="node node-principal" type="button" data-detail="ma"><span class="node-kicker">Pelaku kekuasaan kehakiman</span><span class="node-title">Mahkamah Agung <span aria-hidden="true">·</span> MA</span><span class="node-caption">Puncak empat lingkungan peradilan</span></button>
+            </div>
+            <div class="principal-slot support">
+              <button class="node node-principal ky" type="button" data-detail="ky"><span class="node-kicker">Lembaga negara mandiri</span><span class="node-title">Komisi Yudisial <span aria-hidden="true">·</span> KY</span><span class="node-caption">Menjaga kehormatan dan perilaku hakim</span></button>
+              <span class="support-tag">Penunjang · bukan badan peradilan</span>
+            </div>
+          </div>
+
+          <div class="ma-branches">
+            <p class="ma-label">Empat lingkungan peradilan di bawah MA</p>
+            <div class="environment-grid">
+              <article class="environment" aria-label="Lingkungan Peradilan Umum">
+                <p class="environment-name">Peradilan Umum</p>
+                <button class="node node-environment" type="button" data-detail="umum"><span class="node-title">Peradilan Umum</span><span class="node-caption">Perkara pidana dan perdata</span></button>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <button class="node node-tier" type="button" data-detail="pt"><span class="node-title">Pengadilan Tinggi <span class="node-caption">PT · tingkat banding</span></span></button>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <button class="node node-tier" type="button" data-detail="pn"><span class="node-title">Pengadilan Negeri <span class="node-caption">PN · tingkat pertama</span></span></button>
+                <span class="flow-arrow" aria-hidden="true">↳</span>
+                <button class="node node-special" type="button" data-detail="khusus"><span class="node-title">Pengadilan khusus</span><span class="node-caption">Tipikor · Niaga · HAM · PHI · Anak · Perikanan</span></button>
+              </article>
+              <article class="environment" aria-label="Lingkungan Peradilan Agama">
+                <p class="environment-name">Peradilan Agama</p>
+                <button class="node node-environment" type="button" data-detail="agama"><span class="node-title">Peradilan Agama</span><span class="node-caption">Perkara keperdataan Islam</span></button>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <button class="node node-tier" type="button" data-detail="pta"><span class="node-title">Pengadilan Tinggi Agama <span class="node-caption">PTA · tingkat banding</span></span></button>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <button class="node node-tier" type="button" data-detail="pa"><span class="node-title">PA / Mahkamah Syar'iyah <span class="node-caption">Tingkat pertama · Aceh</span></span></button>
+              </article>
+              <article class="environment" aria-label="Lingkungan Peradilan Militer">
+                <p class="environment-name">Peradilan Militer</p>
+                <button class="node node-environment" type="button" data-detail="militer"><span class="node-title">Peradilan Militer</span><span class="node-caption">Perkara dalam lingkup militer</span></button>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <button class="node node-tier" type="button" data-detail="dilmiltinggi"><span class="node-title">Dilmil Utama / Tinggi <span class="node-caption">Banding · sebagian tingkat pertama</span></span></button>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <button class="node node-tier" type="button" data-detail="dilmil"><span class="node-title">Pengadilan Militer <span class="node-caption">Dilmil · tingkat pertama</span></span></button>
+                <span class="flow-arrow" aria-hidden="true">↳</span>
+                <button class="node node-special" type="button" data-detail="miltempur"><span class="node-title">Dilmil Pertempuran</span><span class="node-caption">Pengadilan khusus · sementara</span></button>
+              </article>
+              <article class="environment" aria-label="Lingkungan Peradilan Tata Usaha Negara">
+                <p class="environment-name">Peradilan TUN</p>
+                <button class="node node-environment" type="button" data-detail="tun"><span class="node-title">Peradilan TUN</span><span class="node-caption">Sengketa administrasi pemerintahan</span></button>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <button class="node node-tier" type="button" data-detail="pttun"><span class="node-title">Pengadilan Tinggi TUN <span class="node-caption">PT TUN · tingkat banding</span></span></button>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <button class="node node-tier" type="button" data-detail="ptun"><span class="node-title">Pengadilan TUN <span class="node-caption">PTUN · tingkat pertama</span></span></button>
+              </article>
+            </div>
+          </div>
+
+          <div class="diagram-note"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5 20 7v5.2c0 4.1-3.4 6.9-8 8.3-4.6-1.4-8-4.2-8-8.3V7l8-3.5Z" stroke="currentColor" stroke-width="1.5"/><path d="m8.7 12 2.1 2.1 4.6-4.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Catatan struktur:</strong> MA dan MK menjalankan kekuasaan kehakiman. KY adalah lembaga mandiri yang mendukung integritas hakim; KY tidak memeriksa atau memutus perkara. Tingkat dan jalur upaya hukum dapat berbeda sesuai jenis perkara.</span></div>
+          <div class="legend" aria-label="Keterangan simbol">
+            <span class="legend-item"><span class="legend-swatch" aria-hidden="true"></span>Landasan kekuasaan kehakiman</span>
+            <span class="legend-item"><span class="legend-line" aria-hidden="true"></span>Hubungan struktur peradilan</span>
+            <span class="legend-item"><span class="legend-line dashed" aria-hidden="true"></span>Peran penunjang KY</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner"><span>Penjelasan pada panel mengikuti teks dari file rujukan yang disertakan.</span><span>Struktur empat lingkungan peradilan: <a href="https://marinews.mahkamahagung.go.id/serba-serbi/mengenal-empat-lingkungan-peradilan-di-bawah-mahkamah-agung-0bud" target="_blank" rel="noreferrer">Mahkamah Agung RI</a></span></div>
+  </footer>
+
+  <dialog id="detail-dialog" aria-labelledby="dialog-title">
+    <div class="modal-head">
+      <p class="modal-kicker" id="dialog-kicker">Informasi lembaga</p>
+      <h2 id="dialog-title">Detail</h2>
+      <button class="modal-close" type="button" aria-label="Tutup panel informasi"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="modal-body" id="dialog-content"></div>
+  </dialog>
+
+  <script>
+    const sourceData = {"kekuasaan":{"title":"Kekuasaan Kehakiman","kicker":"Teks sumber · bagian pengantar","text":"\tKEUASAAN KEHAKIMAN\nKekuasaan Kehakiman di Indonesia\nKekuasaan Kehakiman adalah kekuasaan negara yang merdeka untuk menyelenggarakan peradilan guna menegakkan hukum dan keadilan. Kekuasaan kehakiman di Indonesia diatur dalam Pasal 24 dan Pasal 25 Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 (UUD 1945), serta Undang-Undang Nomor 48 Tahun 2009 tentang Kekuasaan Kehakiman.\nKedudukan\nKekuasaan kehakiman merupakan salah satu cabang kekuasaan negara yang bersifat merdeka dan bebas dari campur tangan pihak lain, kecuali dalam hal-hal yang ditentukan oleh konstitusi dan peraturan perundang-undangan. Berdasarkan Pasal 24 ayat (2) UUD 1945, kekuasaan kehakiman dilakukan oleh Mahkamah Agung (MA) beserta badan peradilan yang berada di bawahnya dalam empat lingkungan peradilan, serta oleh Mahkamah Konstitusi (MK).\nDalam sistem ketatanegaraan Indonesia, terdapat tiga lembaga yang memiliki peran penting dalam penyelenggaraan dan penjagaan integritas kekuasaan kehakiman, yaitu Mahkamah Agung, Mahkamah Konstitusi, dan Komisi Yudisial. MA dan MK merupakan pelaksana kekuasaan kehakiman, sedangkan Komisi Yudisial (KY) merupakan lembaga negara mandiri yang berperan dalam menjaga dan menegakkan kehormatan, keluhuran martabat, serta perilaku hakim.\nKekuasaan kehakiman berfungsi menegakkan hukum dan keadilan, melindungi hak-hak warga negara, menyelesaikan sengketa, serta memastikan bahwa penyelenggaraan negara berjalan sesuai dengan konstitusi dan peraturan perundang-undangan. Oleh karena itu, hakim wajib menjalankan tugasnya secara independen, objektif, dan tidak memihak.\nTingkat Peradilan\nDalam sistem kekuasaan kehakiman di Indonesia, terdapat beberapa tingkatan peradilan yang disesuaikan dengan lingkungan peradilan dan jenis perkara yang ditangani.\n1. Pengadilan tingkat pertama, yaitu pengadilan yang pertama kali memeriksa dan memutus perkara. Contohnya adalah Pengadilan Negeri, Pengadilan Agama, Pengadilan Tata Usaha Negara (PTUN), dan pengadilan militer tingkat pertama.\n2. Pengadilan tingkat banding, yaitu pengadilan yang memeriksa kembali putusan pengadilan tingkat pertama apabila diajukan upaya hukum banding. Contohnya adalah Pengadilan Tinggi, Pengadilan Tinggi Agama, Pengadilan Tinggi Tata Usaha Negara (PT TUN), dan pengadilan militer tingkat banding.\n3. Mahkamah Agung (MA), yaitu lembaga peradilan tertinggi yang berwenang memeriksa perkara pada tingkat kasasi dan peninjauan kembali sesuai dengan ketentuan hukum, serta menjalankan kewenangan lainnya yang diberikan oleh undang-undang.\n4. Mahkamah Konstitusi (MK), yaitu lembaga yang memiliki kewenangan konstitusional tertentu dan memeriksa perkara pada tingkat pertama dan terakhir, dengan putusan yang bersifat final.\n5. Komisi Yudisial (KY) tidak termasuk dalam tingkatan peradilan karena bukan badan yang menyelenggarakan fungsi mengadili. KY merupakan lembaga mandiri yang berperan dalam pengusulan pengangkatan hakim agung serta menjaga dan menegakkan kehormatan, keluhuran martabat, dan perilaku hakim.\nPerlu diperhatikan bahwa tidak semua perkara harus melalui seluruh tingkatan tersebut. Mekanisme upaya hukum bergantung pada jenis perkara dan ketentuan peraturan perundang-undangan yang berlaku.\nKewenangan\nDalam sistem kekuasaan kehakiman Indonesia, Mahkamah Agung, Mahkamah Konstitusi, dan Komisi Yudisial memiliki kewenangan yang berbeda sesuai dengan konstitusi dan peraturan perundang-undangan.\nA. Mahkamah Agung (MA)\nMahkamah Agung merupakan pengadilan negara tertinggi yang membawahi empat lingkungan peradilan, yaitu peradilan umum, peradilan agama, peradilan militer, dan peradilan tata usaha negara. MA memiliki beberapa kewenangan utama, yaitu:\n1.\tMengadili pada tingkat kasasi, yaitu memeriksa penerapan hukum oleh pengadilan di bawahnya sesuai dengan ketentuan hukum acara.\n2.\tMengadili pada tingkat peninjauan kembali (PK) terhadap putusan yang telah berkekuatan hukum tetap apabila memenuhi alasan yang ditentukan undang-undang.\n3.\tMenguji peraturan perundang-undangan di bawah undang-undang terhadap undang-undang.\n4.\tMengawasi penyelenggaraan peradilan pada badan peradilan di bawahnya dalam lingkungan peradilan umum, agama, militer, dan tata usaha negara.\n5.\tMemberikan pertimbangan hukum kepada lembaga negara dalam hal-hal yang ditentukan oleh peraturan perundang-undangan.\nB. Mahkamah Konstitusi (MK)\nMahkamah Konstitusi merupakan lembaga negara yang berwenang menjaga dan menegakkan konstitusi. Berdasarkan Pasal 24C UUD 1945, MK memiliki empat kewenangan dan satu kewajiban konstitusional.\nEmpat kewenangan MK adalah:\n1.\tMenguji undang-undang terhadap UUD 1945, yaitu menilai apakah suatu undang-undang bertentangan dengan konstitusi.\n2.\tMemutus sengketa kewenangan lembaga negara yang kewenangannya diberikan oleh UUD 1945.\n3.\tMemutus pembubaran partai politik.\n4.\tMemutus perselisihan hasil pemilihan umum, sesuai dengan ketentuan konstitusi dan peraturan perundang-undangan.\nAdapun satu kewajiban MK adalah memberikan putusan atas pendapat DPR mengenai dugaan pelanggaran hukum oleh Presiden dan/atau Wakil Presiden, atau mengenai tidak terpenuhinya persyaratan sebagai Presiden dan/atau Wakil Presiden, sebagai bagian dari proses pemberhentian menurut UUD 1945.\nC. Komisi Yudisial (KY)\nKomisi Yudisial merupakan lembaga negara mandiri yang diatur dalam Pasal 24B UUD 1945 serta Undang-Undang Nomor 22 Tahun 2004 tentang Komisi Yudisial, sebagaimana telah diubah dengan Undang-Undang Nomor 18 Tahun 2011. KY bukan badan peradilan dan tidak memiliki kewenangan untuk memeriksa, mengadili, atau membatalkan putusan pengadilan.\nKewenangan utama Komisi Yudisial meliputi:\n1.\tMengusulkan pengangkatan hakim agung, yaitu mengajukan calon hakim agung kepada DPR untuk memperoleh persetujuan sebelum ditetapkan oleh Presiden.\n2.\tMenjaga dan menegakkan kehormatan hakim, yaitu memastikan hakim menjunjung tinggi integritas, kejujuran, dan martabat profesinya.\n3.\tMenjaga dan menegakkan keluhuran martabat hakim, guna mendukung terpeliharanya kepercayaan masyarakat terhadap lembaga peradilan.\n4.\tMenjaga dan menegakkan perilaku hakim, antara lain melalui pemantauan perilaku hakim dan penanganan laporan masyarakat mengenai dugaan pelanggaran Kode Etik dan Pedoman Perilaku Hakim (KEPPH).\n5.\tMenindaklanjuti dugaan pelanggaran perilaku hakim melalui pemeriksaan dan mekanisme pengusulan sanksi sesuai dengan kewenangan serta ketentuan peraturan perundang-undangan.\nKomisi Yudisial berperan mendukung terwujudnya kekuasaan kehakiman yang bersih, independen, dan berintegritas. Pengawasan KY berfokus pada etika dan perilaku hakim, bukan pada penilaian ulang terhadap benar atau salahnya putusan dalam suatu perkara melalui mekanisme di luar upaya hukum."},"mk":{"title":"Mahkamah Konstitusi (MK)","kicker":"Teks sumber · Mahkamah Konstitusi","text":"\tMAHKAMAH KONSTITUSI\nMahkamah Konstitusi (MK) adalah lembaga negara yang diatur dalam Pasal 24 dan Pasal 24C UUD 1945, serta UU No. 24 Tahun 2003 yang telah beberapa kali diubah (terakhir dengan UU No. 7 Tahun 2020).\nKedudukan\nMK adalah salah satu pelaku kekuasaan kehakiman, bersama Mahkamah Agung (MA) dan badan peradilan di bawahnya. MK berdiri sebagai lembaga yang merdeka dan sejajar dengan lembaga negara lainnya, tidak berada di bawah MA. Fungsinya adalah menegakkan konstitusi dan menjaga agar undang-undang tidak bertentangan dengan UUD 1945. Karena itu, MK sering disebut sebagai pengawal konstitusi (the guardian of the constitution), penafsir final konstitusi, pelindung hak konstitusional warga negara, dan pelindung hak asasi manusia.\nTingkat Peradilan\nMK hanya memiliki satu tingkat peradilan, yaitu tingkat pertama dan terakhir. Artinya, tidak ada pengadilan di bawah MK dan tidak ada upaya hukum lanjutan (banding, kasasi, atau peninjauan kembali). Putusan MK bersifat final dan mengikat sejak dibacakan dalam sidang pleno terbuka untuk umum. Putusan MK juga berlaku erga omnes, yakni mengikat semua pihak, bukan hanya pihak yang berperkara.\nKewenangan\nBerdasarkan Pasal 24C UUD 1945, MK memiliki empat kewenangan dan satu kewajiban.\nEmpat kewenangan:\n1.\tMenguji undang-undang terhadap UUD 1945 (judicial review), yaitu menilai apakah suatu UU sesuai dengan konstitusi.\n2.\tMemutus sengketa kewenangan lembaga negara yang kewenangannya diberikan oleh UUD 1945.\n3.\tMemutus pembubaran partai politik.\n4.\tMemutus perselisihan hasil pemilihan umum, yang mencakup pemilu legislatif dan pemilu presiden dan wakil presiden. Perselisihan hasil pilkada juga ditangani MK berdasarkan UU Pilkada.\nSatu kewajiban:\n•\tMemberikan putusan atas pendapat DPR bahwa Presiden dan/atau Wakil Presiden diduga telah melakukan pelanggaran hukum (pengkhianatan terhadap negara, korupsi, penyuapan, tindak pidana berat lainnya, atau perbuatan tercela) dan/atau tidak lagi memenuhi syarat sebagai Presiden dan/atau Wakil Presiden. Ini adalah bagian dari proses pemakzulan (impeachment)."},"ma":{"title":"Mahkamah Agung (MA)","kicker":"Teks sumber · Mahkamah Agung","text":"\tMAHKAMAH AGUNG\nMahkamah Agung (MA) diatur dalam Pasal 24 dan Pasal 24A UUD 1945, serta UU No. 14 Tahun 1985 yang telah diubah dengan UU No. 5 Tahun 2004 dan UU No. 3 Tahun 2009.\nKedudukan\nMA adalah pelaku kekuasaan kehakiman bersama Mahkamah Konstitusi, dan merupakan pengadilan negara tertinggi dari semua lingkungan peradilan di bawahnya. Lingkungan peradilan tersebut adalah:\n•\tperadilan umum,\n•\tperadilan agama,\n•\tperadilan militer,\n•\tperadilan tata usaha negara.\nMA merdeka dari pengaruh pemerintah dan lembaga lain. Sejak sistem satu atap (2004), pembinaan teknis peradilan, organisasi, administrasi, dan keuangan semua badan peradilan berada di bawah MA. MA juga melakukan pengawasan tertinggi atas jalannya peradilan.\nHakim agung dipilih DPR dari calon yang diusulkan Komisi Yudisial, lalu ditetapkan oleh Presiden. Jumlahnya paling banyak 60 orang. Ketua dan wakil ketua dipilih dari dan oleh hakim agung.\nTingkat Peradilan\nBerbeda dengan MK, MA berada di puncak hierarki peradilan dan bukan peradilan satu tingkat. Struktur umumnya:\n1.\tPengadilan tingkat pertama (misalnya Pengadilan Negeri, Pengadilan Agama, PTUN, Pengadilan Militer)\n2.\tPengadilan tingkat banding (Pengadilan Tinggi, dan sejenisnya)\n3.\tMahkamah Agung pada tingkat kasasi dan peninjauan kembali\nUntuk beberapa perkara, MA bertindak sebagai pengadilan tingkat pertama dan terakhir, yaitu pada pengujian peraturan di bawah undang-undang dan sengketa kewenangan mengadili.\nKewenangan\nBerdasarkan Pasal 24A ayat (1) UUD 1945 dan undang-undang terkait:\n1.\tMengadili pada tingkat kasasi, yaitu memeriksa putusan pengadilan di bawahnya, terutama dari sisi penerapan hukum.\n2.\tMenguji peraturan perundang-undangan di bawah undang-undang terhadap undang-undang (misalnya peraturan pemerintah, perpres, atau perda). Ini berbeda dari kewenangan MK yang menguji UU terhadap UUD 1945.\n3.\tMemutus peninjauan kembali (PK) terhadap putusan yang telah berkekuatan hukum tetap.\n4.\tMemutus sengketa kewenangan mengadili antarpengadilan, termasuk antarlingkungan peradilan.\n5.\tMemberikan pertimbangan hukum kepada Presiden dalam pemberian grasi dan rehabilitasi.\n6.\tMengawasi tertinggi penyelenggaraan peradilan dan perilaku hakim di semua lingkungan peradilan (bersama Komisi Yudisial dalam hal etik hakim).\n7.\tKewenangan lain yang diberikan undang-undang."},"ky":{"title":"Komisi Yudisial (KY)","kicker":"Teks sumber · Komisi Yudisial","text":"\tKOMISI YUDISIAL\nKomisi Yudisial (KY) diatur dalam Pasal 24B UUD 1945, serta UU No. 22 Tahun 2004 yang telah diubah dengan UU No. 18 Tahun 2011.\nKedudukan\nKY adalah lembaga negara yang bersifat mandiri dan bukan pelaku kekuasaan kehakiman. KY tidak mengadili perkara dan tidak berwenang memutus perkara, tetapi berperan sebagai lembaga pendukung (auxiliary organ) yang menjaga kehormatan, keluhuran martabat, dan perilaku hakim. Dalam menjalankan tugasnya, KY bebas dari campur tangan pihak lain.\nAnggota KY berjumlah 7 orang, terdiri atas mantan hakim, praktisi hukum, akademisi hukum, dan anggota masyarakat. Mereka diangkat dan diberhentikan oleh Presiden dengan persetujuan DPR, dengan masa jabatan 5 tahun dan dapat dipilih kembali untuk satu kali masa jabatan. Ketua dan wakil ketua dipilih dari dan oleh anggota.\nTingkat Peradilan\nKY tidak memiliki tingkat peradilan, karena bukan lembaga peradilan. Putusan atau keputusannya berupa rekomendasi, misalnya rekomendasi sanksi terhadap hakim yang terbukti melanggar kode etik. Rekomendasi tersebut disampaikan kepada MA. Jika terjadi perbedaan pendapat antara KY dan MA soal sanksi, penyelesaiannya melalui forum Majelis Kehormatan Hakim (MKH).\nKewenangan\nBerdasarkan Pasal 24B UUD 1945 dan UU KY, kewenangan KY meliputi:\n1.\tMengusulkan pengangkatan hakim agung kepada DPR. KY melakukan seleksi calon, lalu DPR memilih dan Presiden menetapkan.\n2.\tMenjaga dan menegakkan kehormatan, keluhuran martabat, serta perilaku hakim, termasuk menerima laporan masyarakat, memeriksa dugaan pelanggaran, dan menjatuhkan atau merekomendasikan sanksi.\n3.\tMenetapkan Kode Etik dan Pedoman Perilaku Hakim (KEPPH) bersama MA.\n4.\tMenjaga dan menegakkan pelaksanaan KEPPH.\n5.\tMelakukan seleksi pengangkatan hakim ad hoc di MA bersama MA (sesuai ketentuan undang-undang).\n6.\tMelakukan upaya peningkatan kapasitas dan kesejahteraan hakim, serta menjaga keluhuran martabat hakim.\n7.\tMelakukan pemantauan persidangan dan analisis putusan sebagai bagian dari pengawasan.\nCatatan Tambahan\n•\tHakim konstitusi tidak berada dalam pengawasan KY. Putusan MK Nomor 005/PUU-IV/2006 menegaskan hal ini, karena hakim MK bukan termasuk hakim yang diawasi KY.\n•\tKY tidak berwenang menilai atau mengubah substansi putusan hakim. Pengawasan KY terbatas pada perilaku dan etik hakim, bukan teknis yustisial."},"umum":{"title":"Lingkungan Peradilan Umum","kicker":"Teks sumber · Peradilan Umum","text":"\tPERADILAN UMUM\nPeradilan umum diatur dalam Pasal 24 UUD 1945, serta UU No. 2 Tahun 1986 yang telah diubah dengan UU No. 8 Tahun 2004 dan UU No. 49 Tahun 2009.\nKedudukan\nPeradilan umum adalah salah satu lingkungan peradilan di bawah Mahkamah Agung dan merupakan pelaksana kekuasaan kehakiman bagi rakyat pencari keadilan pada umumnya. Disebut “umum” karena menangani perkara pidana dan perdata yang tidak menjadi kewenangan lingkungan peradilan lain (agama, militer, dan tata usaha negara).\nPembinaan teknis peradilan, organisasi, administrasi, dan keuangannya berada di bawah MA (sistem satu atap). Hakim diangkat dan diberhentikan oleh Presiden atas usul Ketua MA. Susunan pengadilan terdiri atas pimpinan (ketua dan wakil ketua), hakim, panitera, sekretaris, dan juru sita.\nTingkat Peradilan\nPeradilan umum terdiri atas tiga tingkat:\n1.\tPengadilan Negeri (PN): pengadilan tingkat pertama, berkedudukan di ibu kota kabupaten/kota dengan daerah hukum meliputi wilayah tersebut.\n2.\tPengadilan Tinggi (PT): pengadilan tingkat banding, berkedudukan di ibu kota provinsi dengan daerah hukum meliputi wilayah provinsi.\n3.\tMahkamah Agung: tingkat kasasi dan peninjauan kembali.\nDalam lingkungan peradilan umum juga dapat dibentuk pengadilan khusus yang diatur dengan undang-undang, misalnya:\n•\tPengadilan Anak\n•\tPengadilan Niaga\n•\tPengadilan Hak Asasi Manusia\n•\tPengadilan Tindak Pidana Korupsi\n•\tPengadilan Hubungan Industrial\n•\tPengadilan Perikanan\nKewenangan\nPengadilan Negeri:\n1.\tMemeriksa, memutus, dan menyelesaikan perkara pidana dan perdata di tingkat pertama.\n2.\tMemberikan keterangan, pertimbangan, dan nasihat hukum kepada instansi pemerintah di daerah hukumnya apabila diminta.\n3.\tMenjalankan kewenangan lain yang diberikan undang-undang, misalnya penetapan (seperti pengangkatan anak dan perwalian) serta eksekusi putusan.\nPengadilan Tinggi:\n1.\tMengadili perkara pidana dan perdata di tingkat banding.\n2.\tMengadili di tingkat pertama dan terakhir sengketa kewenangan mengadili antar-Pengadilan Negeri di daerah hukumnya.\n3.\tMengawasi jalannya peradilan di Pengadilan Negeri dalam daerah hukumnya.\nContoh Perkara\n•\tPidana: pencurian, penipuan, penganiayaan, pembunuhan, dan tindak pidana lain menurut KUHP dan undang-undang pidana.\n•\tPerdata: wanprestasi, perbuatan melawan hukum, sengketa tanah, utang piutang, serta perceraian dan waris bagi non-Muslim."},"pt":{"title":"Pengadilan Tinggi (PT)","kicker":"Teks sumber · Pengadilan Tinggi","text":"\tPENGADILAN TINGGI\nPengadilan Tinggi (PT) diatur dalam UU No. 2 Tahun 1986 tentang Peradilan Umum, yang telah diubah dengan UU No. 8 Tahun 2004 dan UU No. 49 Tahun 2009, serta UU No. 48 Tahun 2009 tentang Kekuasaan Kehakiman.\nKedudukan\nPengadilan Tinggi adalah pengadilan tingkat banding dalam lingkungan peradilan umum. Ia berkedudukan di ibu kota provinsi dengan daerah hukum meliputi wilayah provinsi tersebut. PT berada di bawah Mahkamah Agung, baik secara teknis peradilan maupun organisasi, administrasi, dan keuangan (sistem satu atap).\nSusunan Pengadilan Tinggi terdiri atas pimpinan (ketua dan wakil ketua), hakim tinggi, panitera, dan sekretaris. Hakim tinggi diangkat dan diberhentikan oleh Presiden atas usul Ketua Mahkamah Agung.\nSelain PT di lingkungan peradilan umum, terdapat pula pengadilan tingkat banding di lingkungan peradilan lain, yaitu Pengadilan Tinggi Agama, Pengadilan Militer Tinggi, dan Pengadilan Tinggi Tata Usaha Negara (PT TUN).\nTingkat Peradilan\nPT adalah pengadilan tingkat kedua (banding), berada di antara Pengadilan Negeri dan Mahkamah Agung:\n1.\tPengadilan Negeri (tingkat pertama)\n2.\tPengadilan Tinggi (tingkat banding)\n3.\tMahkamah Agung (kasasi dan peninjauan kembali)\nPutusan PT dapat diajukan kasasi ke Mahkamah Agung. Pada praktiknya PT memeriksa ulang perkara (judex facti), baik fakta maupun penerapan hukumnya, berbeda dengan MA yang pada kasasi terutama menilai penerapan hukum (judex juris).\nKewenangan\nBerdasarkan undang-undang, Pengadilan Tinggi berwenang:\n1.\tMengadili perkara pidana dan perdata pada tingkat banding, yaitu memeriksa putusan Pengadilan Negeri yang dimohonkan banding oleh pihak yang berperkara. PT dapat menguatkan, mengubah, atau membatalkan putusan PN.\n2.\tMengadili pada tingkat pertama dan terakhir sengketa kewenangan mengadili antar-Pengadilan Negeri di daerah hukumnya.\n3.\tMengawasi jalannya peradilan di Pengadilan Negeri dalam daerah hukumnya, termasuk pengawasan terhadap perilaku hakim, panitera, dan pejabat peradilan lainnya.\n4.\tMemberikan keterangan, pertimbangan, dan nasihat hukum kepada instansi pemerintah di daerah hukumnya apabila diminta.\n5.\tMenjalankan kewenangan lain yang diberikan undang-undang.\nCatatan Tambahan\n•\tBanding umumnya diajukan dalam waktu 14 hari sejak putusan PN dibacakan atau diberitahukan (perkara pidana), dan 14 hari untuk perkara perdata.\n•\tTidak semua putusan dapat dibanding. Misalnya, putusan bebas murni dalam perkara pidana tidak dapat dibanding menurut KUHAP, dan perkara pelanggaran lalu lintas tertentu (acara cepat) umumnya tidak dapat dibanding.\n•\tPada perkara tertentu seperti tindak pidana korupsi, banding diperiksa oleh Pengadilan Tinggi di tingkat provinsi (Pengadilan Tipikor pada PT)."},"pn":{"title":"Pengadilan Negeri (PN)","kicker":"Teks sumber · Pengadilan Negeri","text":"\tPENGADILAN NEGERI\nPengadilan Negeri (PN) diatur dalam UU No. 2 Tahun 1986 tentang Peradilan Umum, yang telah diubah dengan UU No. 8 Tahun 2004 dan UU No. 49 Tahun 2009, serta UU No. 48 Tahun 2009 tentang Kekuasaan Kehakiman.\nKedudukan\nPengadilan Negeri adalah pengadilan tingkat pertama dalam lingkungan peradilan umum. Ia berkedudukan di ibu kota kabupaten/kota dengan daerah hukum meliputi wilayah kabupaten/kota tersebut. PN berada di bawah Mahkamah Agung dalam hal teknis peradilan, organisasi, administrasi, dan keuangan (sistem satu atap).\nSusunan Pengadilan Negeri terdiri atas pimpinan (ketua dan wakil ketua), hakim, panitera, sekretaris, dan juru sita. Hakim diangkat dan diberhentikan oleh Presiden atas usul Ketua Mahkamah Agung.\nTingkat Peradilan\nPN adalah pengadilan tingkat pertama, yang memeriksa perkara untuk pertama kalinya:\n1.\tPengadilan Negeri (tingkat pertama)\n2.\tPengadilan Tinggi (tingkat banding)\n3.\tMahkamah Agung (kasasi dan peninjauan kembali)\nPN termasuk judex facti, yaitu memeriksa fakta dan penerapan hukum. Putusan PN dapat diajukan banding ke Pengadilan Tinggi. Pada perkara tertentu yang diatur undang-undang, upaya hukum dapat langsung ke MA.\nKewenangan\n1.\tMemeriksa, memutus, dan menyelesaikan perkara pidana dan perdata di tingkat pertama.\n2.\tMemberikan keterangan, pertimbangan, dan nasihat hukum kepada instansi pemerintah di daerah hukumnya apabila diminta.\n3.\tMengeluarkan penetapan, misalnya pengangkatan anak, perwalian, pengampuan, dan penetapan ahli waris bagi non-Muslim.\n4.\tMelaksanakan eksekusi putusan yang telah berkekuatan hukum tetap.\n5.\tMemberikan izin atau persetujuan penyitaan dan penggeledahan dalam proses pidana, serta memeriksa praperadilan (sah tidaknya penangkapan, penahanan, penghentian penyidikan, dan sebagainya).\n6.\tMengadili perkara di pengadilan khusus yang berada di lingkungan PN, seperti Pengadilan Anak, Pengadilan Niaga, Pengadilan HAM, Pengadilan Tipikor, dan Pengadilan Hubungan Industrial (sebagian berkedudukan di PN tertentu saja).\n7.\tMenjalankan kewenangan lain yang diberikan undang-undang.\nCatatan Tambahan\n•\tKompetensi absolut menentukan lingkungan peradilan yang berwenang (misalnya perkara perdata Islam tertentu ke Pengadilan Agama, bukan PN), sedangkan kompetensi relatif menentukan PN mana yang berwenang, umumnya berdasarkan domisili tergugat (perdata) atau tempat terjadinya tindak pidana (pidana).\n•\tPemeriksaan perkara dilakukan oleh majelis hakim (minimal tiga hakim) atau hakim tunggal pada perkara tertentu, seperti acara pemeriksaan cepat dan gugatan sederhana.\n•\tGugatan sederhana (small claims court) dapat diajukan untuk sengketa perdata bernilai paling banyak Rp500 juta dan diperiksa oleh hakim tunggal."},"khusus":{"title":"Pengadilan Khusus","kicker":"Teks sumber · Pengadilan Khusus","text":"\tPENGADILAN KHUSUS\nPengadilan khusus diatur dalam Pasal 27 UU No. 48 Tahun 2009 tentang Kekuasaan Kehakiman, serta Pasal 8 UU No. 2 Tahun 1986 tentang Peradilan Umum (sebagaimana diubah dengan UU No. 8 Tahun 2004 dan UU No. 49 Tahun 2009). Pengadilan khusus dibentuk dengan undang-undang masing-masing.\nKedudukan\nPengadilan khusus adalah pengadilan yang memiliki kewenangan mengadili perkara tertentu dan dibentuk dalam salah satu lingkungan peradilan di bawah Mahkamah Agung. Pengadilan ini hanya dapat dibentuk dengan undang-undang, tidak dapat dibentuk dengan peraturan yang lebih rendah.\nPengadilan khusus berada di bawah MA, baik dalam hal teknis peradilan maupun organisasi, administrasi, dan keuangan. Hakimnya terdiri atas hakim karier dan, pada pengadilan tertentu, hakim ad hoc yang memiliki keahlian khusus dan diangkat untuk jangka waktu tertentu.\nPengadilan khusus dapat berada di berbagai lingkungan peradilan:\n•\tPeradilan umum: Pengadilan Anak, Niaga, HAM, Tipikor, Hubungan Industrial, dan Perikanan.\n•\tPeradilan agama: Mahkamah Syar’iyah di Aceh (khusus berdasarkan UU Pemerintahan Aceh).\n•\tPeradilan tata usaha negara: Pengadilan Pajak (pembinaan teknis di MA, organisasi dan keuangan di Kementerian Keuangan).\n•\tPeradilan militer: Pengadilan Militer Pertempuran.\nTingkat Peradilan\nPengadilan khusus umumnya berkedudukan sejajar dengan Pengadilan Negeri (tingkat pertama), karena sebagian besar berada di dalam lingkungan peradilan umum. Namun upaya hukumnya berbeda-beda sesuai undang-undang pembentuknya:\n1.\tTingkat pertama: pengadilan khusus yang bersangkutan (misalnya Pengadilan Tipikor pada PN).\n2.\tBanding: pada umumnya ke Pengadilan Tinggi (misalnya perkara Tipikor, Anak, dan HAM).\n3.\tKasasi: ke Mahkamah Agung.\nPengecualian: pada Pengadilan Hubungan Industrial, perselisihan hak dan pemutusan hubungan kerja tidak melalui banding, tetapi langsung kasasi ke MA. Pada Pengadilan Pajak, putusannya tidak dapat dibanding, tetapi langsung dapat diajukan peninjauan kembali ke MA.\nKewenangan dan Jenis Pengadilan Khusus\nPengadilan Khusus\tDasar Hukum\tKewenangan Utama\tUpaya Hukum\nPengadilan Anak\tUU No. 11/2012 (SPPA)\tPerkara pidana dengan pelaku anak (12 sampai 18 tahun)\tBanding, kasasi\nPengadilan Niaga\tUU No. 37/2004 (Kepailitan dan PKPU), UU Merek, UU Paten\tKepailitan, PKPU, dan sengketa kekayaan intelektual\tLangsung kasasi ke MA\nPengadilan HAM\tUU No. 26/2000\tPelanggaran HAM berat (genosida dan kejahatan terhadap kemanusiaan)\tBanding, kasasi\nPengadilan Tipikor\tUU No. 46/2009\tTindak pidana korupsi\tBanding, kasasi\nPengadilan Hubungan Industrial\tUU No. 2/2004\tPerselisihan hak, kepentingan, PHK, dan antarserikat pekerja\tHak dan PHK langsung kasasi\nPengadilan Perikanan\tUU No. 45/2009 (perubahan UU Perikanan)\tTindak pidana di bidang perikanan\tBanding, kasasi\nPengadilan Pajak\tUU No. 14/2002\tSengketa pajak (banding atas keputusan keberatan dan gugatan)\tPeninjauan kembali ke MA\nMahkamah Syar’iyah (Aceh)\tUU No. 11/2006\tPerkara syariat Islam (termasuk jinayat) di Aceh\tBanding, kasasi\nCatatan Tambahan\n•\tPengadilan khusus tidak semuanya ada di setiap kabupaten/kota. Misalnya, Pengadilan Tipikor ada di setiap ibu kota provinsi (sebelumnya hanya di beberapa kota), dan Pengadilan HAM hanya berkedudukan di empat kota (Jakarta Pusat, Surabaya, Medan, dan Makassar).\n•\tPengadilan khusus dibentuk untuk menangani perkara yang membutuhkan keahlian dan prosedur khusus, sehingga dapat berbeda dari hukum acara umum.\n•\tPengadilan Tipikor adalah contoh pengadilan khusus yang melibatkan hakim ad hoc, yaitu hakim non-karier yang dipilih karena keahlian tertentu."},"agama":{"title":"Lingkungan Peradilan Agama","kicker":"Teks sumber · Peradilan Agama","text":"\tPERADILAN AGAMA\nPeradilan agama diatur dalam Pasal 24 UUD 1945, serta UU No. 7 Tahun 1989 tentang Peradilan Agama, yang telah diubah dengan UU No. 3 Tahun 2006 dan UU No. 50 Tahun 2009.\nKedudukan\nPeradilan agama adalah salah satu lingkungan peradilan di bawah Mahkamah Agung dan merupakan pelaksana kekuasaan kehakiman bagi rakyat pencari keadilan yang beragama Islam mengenai perkara perdata tertentu. Pembinaan teknis peradilan, organisasi, administrasi, dan keuangannya berada di bawah MA (sistem satu atap).\nSusunan pengadilan terdiri atas pimpinan (ketua dan wakil ketua), hakim, panitera, sekretaris, dan juru sita. Hakim diangkat dan diberhentikan oleh Presiden atas usul Ketua MA.\nTingkat Peradilan\nPeradilan agama terdiri atas tiga tingkat:\n1.\tPengadilan Agama (PA): tingkat pertama, berkedudukan di ibu kota kabupaten/kota dengan daerah hukum meliputi wilayah tersebut.\n2.\tPengadilan Tinggi Agama (PTA): tingkat banding, berkedudukan di ibu kota provinsi dengan daerah hukum meliputi wilayah provinsi.\n3.\tMahkamah Agung: tingkat kasasi dan peninjauan kembali.\nDi Aceh, pengadilan tingkat pertama dan banding disebut Mahkamah Syar’iyah dan Mahkamah Syar’iyah Provinsi, dengan kewenangan yang lebih luas termasuk perkara jinayat (pidana syariat), berdasarkan UU No. 11 Tahun 2006 tentang Pemerintahan Aceh.\nKewenangan\nPengadilan Agama berwenang memeriksa, memutus, dan menyelesaikan perkara tingkat pertama antara orang-orang yang beragama Islam di bidang:\n1.\tPerkawinan, misalnya izin poligami, pencegahan perkawinan, pembatalan perkawinan, dan perceraian (cerai talak dan cerai gugat).\n2.\tWaris, yaitu penentuan ahli waris, penentuan bagian masing-masing, dan pembagian harta peninggalan.\n3.\tWasiat.\n4.\tHibah.\n5.\tWakaf.\n6.\tZakat.\n7.\tInfaq.\n8.\tShadaqah.\n9.\tEkonomi syariah, seperti perbankan syariah, asuransi syariah, dan pembiayaan syariah (sejak UU No. 3 Tahun 2006).\nSelain itu, PA berwenang mengeluarkan itsbat nikah (pengesahan perkawinan), penetapan asal usul anak, dan penetapan wali adhal.\nPengadilan Tinggi Agama berwenang:\n1.\tMengadili perkara yang menjadi kewenangan PA pada tingkat banding.\n2.\tMengadili pada tingkat pertama dan terakhir sengketa kewenangan mengadili antar-Pengadilan Agama di daerah hukumnya.\nCatatan Tambahan\n•\tSengketa hak milik atau keperdataan lain yang timbul dalam perkara di atas dapat diputus oleh PA sepanjang subjek sengketanya sama-sama beragama Islam (sejak UU No. 3 Tahun 2006). Jika salah satu pihak bukan Islam, sengketa itu menjadi kewenangan peradilan umum.\n•\tPerkara perceraian bagi non-Muslim diperiksa oleh Pengadilan Negeri, bukan PA.\n•\tPA menerapkan hukum acara perdata yang berlaku di peradilan umum, kecuali yang diatur khusus dalam UU Peradilan Agama.\n•\tPerkara tertentu seperti perceraian wajib melalui mediasi terlebih dahulu."},"pta":{"title":"Pengadilan Tinggi Agama (PTA)","kicker":"Teks sumber · Pengadilan Tinggi Agama","text":"\tPENGADILAN TINGGI AGAMA\nPengadilan Tinggi Agama (PTA) diatur dalam UU No. 7 Tahun 1989 tentang Peradilan Agama, yang telah diubah dengan UU No. 3 Tahun 2006 dan UU No. 50 Tahun 2009, serta UU No. 48 Tahun 2009 tentang Kekuasaan Kehakiman.\nKedudukan\nPengadilan Tinggi Agama adalah pengadilan tingkat banding dalam lingkungan peradilan agama. PTA berkedudukan di ibu kota provinsi dengan daerah hukum meliputi wilayah provinsi tersebut. PTA berada di bawah Mahkamah Agung dalam hal teknis peradilan, organisasi, administrasi, dan keuangan (sistem satu atap).\nSusunan PTA terdiri atas pimpinan (ketua dan wakil ketua), hakim tinggi, panitera, dan sekretaris. Hakim tinggi diangkat dan diberhentikan oleh Presiden atas usul Ketua Mahkamah Agung.\nDi Aceh, pengadilan yang setara disebut Mahkamah Syar’iyah Provinsi, berdasarkan UU No. 11 Tahun 2006 tentang Pemerintahan Aceh.\nTingkat Peradilan\nPTA adalah pengadilan tingkat kedua (banding), berada di antara Pengadilan Agama dan Mahkamah Agung:\n1.\tPengadilan Agama (tingkat pertama)\n2.\tPengadilan Tinggi Agama (tingkat banding)\n3.\tMahkamah Agung (kasasi dan peninjauan kembali)\nPTA termasuk judex facti, yaitu memeriksa ulang fakta dan penerapan hukum. Putusan PTA dapat diajukan kasasi ke Mahkamah Agung.\nKewenangan\n1.\tMengadili perkara tingkat banding, yaitu memeriksa putusan Pengadilan Agama yang dimohonkan banding dalam bidang perkawinan, waris, wasiat, hibah, wakaf, zakat, infaq, shadaqah, dan ekonomi syariah. PTA dapat menguatkan, mengubah, atau membatalkan putusan PA.\n2.\tMengadili pada tingkat pertama dan terakhir sengketa kewenangan mengadili antar-Pengadilan Agama di daerah hukumnya.\n3.\tMengawasi jalannya peradilan di Pengadilan Agama dalam daerah hukumnya, termasuk perilaku hakim, panitera, dan pejabat peradilan lainnya.\n4.\tMemberikan keterangan, pertimbangan, dan nasihat hukum Islam kepada instansi pemerintah di daerah hukumnya apabila diminta.\n5.\tMenjalankan kewenangan lain yang diberikan undang-undang.\nCatatan Tambahan\n•\tPermohonan banding diajukan dalam waktu 14 hari sejak putusan PA dibacakan atau diberitahukan kepada pihak yang berperkara.\n•\tPTA tidak menerima perkara baru secara langsung (kecuali sengketa kewenangan mengadili), karena semua perkara harus diperiksa lebih dahulu di tingkat pertama oleh PA.\n•\tPemeriksaan banding umumnya dilakukan berdasarkan berkas perkara dari PA, tanpa menghadirkan para pihak kembali, kecuali majelis hakim menganggap perlu pemeriksaan tambahan."},"pa":{"title":"Pengadilan Agama dan Mahkamah Syariah","kicker":"Teks sumber · Pengadilan Agama dan Mahkamah Syariah Aceh","text":"\tPENGADILAN AGAMA\nPengadilan Agama (PA) diatur dalam UU No. 7 Tahun 1989 tentang Peradilan Agama, yang telah diubah dengan UU No. 3 Tahun 2006 dan UU No. 50 Tahun 2009, serta UU No. 48 Tahun 2009 tentang Kekuasaan Kehakiman.\nKedudukan\nPengadilan Agama adalah pengadilan tingkat pertama dalam lingkungan peradilan agama. PA berkedudukan di ibu kota kabupaten/kota dengan daerah hukum meliputi wilayah kabupaten/kota tersebut. PA berada di bawah Mahkamah Agung dalam hal teknis peradilan, organisasi, administrasi, dan keuangan (sistem satu atap).\nSusunan PA terdiri atas pimpinan (ketua dan wakil ketua), hakim, panitera, sekretaris, dan juru sita. Hakim diangkat dan diberhentikan oleh Presiden atas usul Ketua Mahkamah Agung.\nDi Aceh, pengadilan yang setara disebut Mahkamah Syar’iyah, berdasarkan UU No. 11 Tahun 2006 tentang Pemerintahan Aceh.\nTingkat Peradilan\nPA adalah pengadilan tingkat pertama, yang memeriksa perkara untuk pertama kalinya:\n1.\tPengadilan Agama (tingkat pertama)\n2.\tPengadilan Tinggi Agama (tingkat banding)\n3.\tMahkamah Agung (kasasi dan peninjauan kembali)\nPA termasuk judex facti, yaitu memeriksa fakta dan penerapan hukum. Putusan PA dapat diajukan banding ke Pengadilan Tinggi Agama.\nKewenangan\nPA berwenang memeriksa, memutus, dan menyelesaikan perkara tingkat pertama antara orang-orang yang beragama Islam di bidang:\n1.\tPerkawinan, misalnya izin poligami, pencegahan perkawinan, pembatalan perkawinan, cerai talak, cerai gugat, dan dispensasi kawin.\n2.\tWaris, yaitu penentuan ahli waris, bagian masing-masing, dan pembagian harta peninggalan.\n3.\tWasiat.\n4.\tHibah.\n5.\tWakaf.\n6.\tZakat.\n7.\tInfaq.\n8.\tShadaqah.\n9.\tEkonomi syariah, seperti perbankan syariah, asuransi syariah, dan pembiayaan syariah.\nSelain itu, PA berwenang:\n•\tMengeluarkan itsbat nikah (pengesahan perkawinan).\n•\tMenetapkan asal usul anak dan wali adhal.\n•\tMemberikan keterangan, pertimbangan, dan nasihat hukum Islam kepada instansi pemerintah di daerah hukumnya apabila diminta.\n•\tMemberikan itsbat rukyat hilal (penetapan awal bulan hijriah) dan menjalankan kewenangan lain yang diberikan undang-undang.\nCatatan Tambahan\n•\tPerkara perceraian non-Muslim diperiksa oleh Pengadilan Negeri, bukan PA.\n•\tSengketa hak milik atau keperdataan lain yang terkait dengan perkara di atas dapat diputus PA sepanjang para pihaknya sama-sama beragama Islam.\n•\tPA menerapkan hukum acara perdata yang berlaku di peradilan umum, kecuali yang diatur khusus dalam UU Peradilan Agama.\n•\tPerkara perceraian wajib melalui mediasi terlebih dahulu.\n•\tDasar hukum materiil yang banyak dipakai adalah UU Perkawinan (UU No. 1 Tahun 1974) dan Kompilasi Hukum Islam (KHI) berdasarkan Inpres No. 1 Tahun 1991.\n\n\tMAHKAMAH SYAR’IYAH ACEH\nMahkamah Syar’iyah di Aceh diatur dalam UU No. 11 Tahun 2006 tentang Pemerintahan Aceh (Pasal 128 sampai 137), Qanun Aceh No. 10 Tahun 2002 tentang Peradilan Syariat Islam, serta Qanun Aceh No. 6 Tahun 2014 tentang Hukum Jinayat. Dasar awalnya adalah UU No. 18 Tahun 2001 tentang Otonomi Khusus Aceh.\nKedudukan\nMahkamah Syar’iyah adalah pengadilan khusus dalam lingkungan peradilan agama yang berlaku di Aceh, sekaligus pengadilan khusus dalam lingkungan peradilan umum untuk perkara jinayat. Artinya, ia menjalankan dua fungsi sekaligus. Mahkamah Syar’iyah merupakan pengembangan dari Pengadilan Agama dan Pengadilan Tinggi Agama yang sudah ada di Aceh.\nMahkamah Syar’iyah berada di bawah Mahkamah Agung dalam hal teknis peradilan, organisasi, administrasi, dan keuangan. Penerapan syariat Islam di Aceh dilakukan dalam kerangka otonomi khusus, dan hanya berlaku bagi pemeluk agama Islam di Aceh. Jika perbuatan melibatkan non-Muslim, pelakunya dapat memilih tunduk pada hukum jinayat secara sukarela, dan apabila perbuatannya diatur dalam KUHP tetapi tidak diatur dalam qanun, berlaku KUHP.\nHakimnya adalah hakim karier, dan pada perkara tertentu dapat diperiksa oleh hakim ad hoc yang memiliki keahlian di bidang syariat.\nTingkat Peradilan\nMahkamah Syar’iyah terdiri atas tiga tingkat:\n1.\tMahkamah Syar’iyah (kabupaten/kota): tingkat pertama, setara dengan Pengadilan Agama.\n2.\tMahkamah Syar’iyah Aceh (provinsi): tingkat banding, berkedudukan di Banda Aceh, setara dengan Pengadilan Tinggi Agama.\n3.\tMahkamah Agung: tingkat kasasi dan peninjauan kembali.\nKewenangan\nBerdasarkan Pasal 128 UU Pemerintahan Aceh, Mahkamah Syar’iyah berwenang memeriksa, memutus, dan menyelesaikan perkara di bidang:\n1.\tAhwal al-syakhsiyah (hukum keluarga), yaitu perkawinan, perceraian, waris, wasiat, dan hibah, sebagaimana kewenangan Pengadilan Agama.\n2.\tMuamalah (hukum perdata), termasuk ekonomi syariah, wakaf, zakat, infaq, dan shadaqah.\n3.\tJinayat (hukum pidana), yaitu perkara yang diatur dalam qanun.\nJenis jinayat menurut Qanun No. 6 Tahun 2014 antara lain:\n•\tKhamar (minuman keras)\n•\tMaisir (perjudian)\n•\tKhalwat (berduaan non-mahram)\n•\tIkhtilath (bermesraan bukan pasangan sah)\n•\tZina\n•\tPelecehan seksual\n•\tPemerkosaan\n•\tQadzaf (menuduh zina tanpa bukti)\n•\tLiwath (hubungan sesama jenis laki-laki) dan musahaqah (hubungan sesama jenis perempuan)\nJenis hukuman (uqubat) meliputi hudud (cambuk dengan jumlah tetap, misalnya untuk zina dan qadzaf) dan ta’zir (cambuk, denda, penjara, atau restitusi). Hukuman cambuk dilaksanakan oleh jaksa penuntut umum.\nCatatan Tambahan\n•\tHukum acara yang dipakai dalam perkara jinayat diatur dalam Qanun Aceh No. 7 Tahun 2013 tentang Hukum Acara Jinayat.\n•\tPenyidikan perkara jinayat dilakukan oleh Polri dan Wilayatul Hisbah (WH, polisi syariat), sedangkan penuntutan oleh jaksa.\n•\tBanding perkara jinayat diajukan ke Mahkamah Syar’iyah Aceh, kemudian kasasi ke MA.\n•\tPada perkara perdata Islam, Mahkamah Syar’iyah menerapkan hukum acara perdata yang sama dengan Pengadilan Agama.\n•\tKewenangan Mahkamah Syar’iyah dalam bidang jinayat bersifat khusus untuk Aceh dan tidak dimiliki oleh Pengadilan Agama di provinsi lain."},"militer":{"title":"Lingkungan Peradilan Militer","kicker":"Teks sumber · Peradilan Militer","text":"\tPERADILAN MILITER\nPeradilan militer diatur dalam Pasal 24 UUD 1945, serta UU No. 31 Tahun 1997 tentang Peradilan Militer. Undang-undang ini masih menjadi dasar utama, meskipun UU No. 34 Tahun 2004 tentang TNI mengamanatkan agar prajurit tunduk pada peradilan umum untuk tindak pidana umum (ketentuan ini belum sepenuhnya dilaksanakan karena revisi UU Peradilan Militer belum tuntas).\nKedudukan\nPeradilan militer adalah salah satu lingkungan peradilan di bawah Mahkamah Agung dan merupakan pelaksana kekuasaan kehakiman di lingkungan Angkatan Bersenjata (TNI) untuk menegakkan hukum dan keadilan dengan memperhatikan kepentingan pertahanan dan keamanan negara.\nSejak sistem satu atap, pembinaan teknis peradilan berada di bawah MA, sedangkan pembinaan organisasi, administrasi, dan keuangan secara bertahap dialihkan dari Mabes TNI ke MA. Dalam praktiknya, Oditurat Militer (penuntut) dan Papera (Perwira Penyerah Perkara) masih berada dalam struktur TNI.\nSusunan pengadilan terdiri atas hakim (hakim militer, hakim militer tinggi, hakim militer utama), panitera, dan unsur pendukung lain. Hakim dapat berasal dari perwira TNI yang berijazah sarjana hukum.\nTingkat Peradilan\nPeradilan militer terdiri atas empat badan peradilan:\n1.\tPengadilan Militer: tingkat pertama untuk perkara pidana dengan terdakwa berpangkat Kapten ke bawah.\n2.\tPengadilan Militer Tinggi: tingkat pertama untuk terdakwa berpangkat Mayor ke atas, serta tingkat banding untuk putusan Pengadilan Militer.\n3.\tPengadilan Militer Utama: tingkat banding untuk putusan Pengadilan Militer Tinggi pada tingkat pertama, serta mengadili sengketa kewenangan mengadili.\n4.\tPengadilan Militer Pertempuran: pengadilan khusus yang bersifat sementara, dibentuk untuk mengadili tindak pidana prajurit di daerah pertempuran. Pengadilan ini dibentuk oleh Panglima TNI dan putusannya dapat langsung diajukan kasasi ke MA.\nSelanjutnya, Mahkamah Agung menjadi tingkat kasasi dan peninjauan kembali.\nKewenangan\nPengadilan Militer, Pengadilan Militer Tinggi, dan Pengadilan Militer Utama berwenang:\n1.\tMengadili tindak pidana yang dilakukan oleh prajurit TNI atau orang yang disamakan dengan prajurit, serta anggota golongan/jawatan yang dipersamakan.\n2.\tMemeriksa dan memutus sengketa Tata Usaha Angkatan Bersenjata (keputusan Pejabat TUN di lingkungan TNI).\n3.\tMenggabungkan perkara gugatan ganti rugi dalam perkara pidana apabila diminta.\n4.\tMemeriksa dan memutus perkara di tingkat banding (Pengadilan Militer Tinggi dan Utama).\n5.\tMengadili sengketa kewenangan mengadili antar-pengadilan dalam lingkungan peradilan militer (Pengadilan Militer Utama).\nCatatan Tambahan\n•\tKewenangan peradilan militer terbatas pada subjek (prajurit dan yang dipersamakan), bukan jenis perkara. Penentuan pengadilan didasarkan pada pangkat terdakwa.\n•\tSistem peradilan militer melibatkan beberapa pejabat khusus: Ankum (Atasan yang Berhak Menghukum), Papera, dan Oditur Militer. Papera memiliki kewenangan menyerahkan atau tidak menyerahkan perkara ke pengadilan.\n•\tHukum acara diatur dalam UU No. 31 Tahun 1997, sedangkan hukum materiilnya adalah KUHPM (Kitab Undang-Undang Hukum Pidana Militer) dan KUHP.\n•\tPeradilan militer tidak mengadili warga sipil, kecuali yang diatur dalam ketentuan koneksitas (perkara yang melibatkan prajurit dan sipil secara bersama-sama), yang penentuan peradilannya diatur secara khusus oleh Menteri Pertahanan dan Menteri Kehakiman.\n•\tApabila tindak pidana umum dilakukan prajurit, secara normatif UU TNI mengamanatkan agar diadili di peradilan umum, namun masih terdapat perdebatan dan praktik yang belum seragam."},"dilmiltinggi":{"title":"Pengadilan Militer Utama / Tinggi","kicker":"Teks sumber · Pengadilan Militer Utama dan Pengadilan Militer Tinggi","text":"\tPENGADILAN MILITER UTAMA DAN PENGADILAN MILITER TINGGI\nPengadilan Militer Utama dan Pengadilan Militer Tinggi diatur dalam UU No. 31 Tahun 1997 tentang Peradilan Militer, serta UU No. 48 Tahun 2009 tentang Kekuasaan Kehakiman. Keduanya berada dalam lingkungan peradilan militer di bawah Mahkamah Agung.\nA. Pengadilan Militer Tinggi\nKedudukan\nPengadilan Militer Tinggi adalah badan peradilan militer tingkat menengah. Pengadilan ini berkedudukan di wilayah tertentu yang ditetapkan dengan keputusan Panglima TNI (misalnya Jakarta, Medan, Surabaya, Makassar, dan Denpasar), dengan daerah hukum yang meliputi beberapa wilayah Pengadilan Militer. Pembinaan teknis peradilan berada di bawah MA, sedangkan pembinaan organisasi, administrasi, dan keuangan secara bertahap dialihkan dari Mabes TNI ke MA.\nSusunannya terdiri atas kepala (ketua), hakim militer tinggi, panitera, dan unsur pendukung lain.\nTingkat Peradilan\nPengadilan Militer Tinggi berada pada dua posisi sekaligus:\n1.\tTingkat pertama: untuk perkara pidana dengan terdakwa berpangkat Mayor ke atas.\n2.\tTingkat banding: untuk putusan Pengadilan Militer (terdakwa Kapten ke bawah).\nUpaya hukum atas putusannya:\n•\tPutusan tingkat pertama dapat dibanding ke Pengadilan Militer Utama.\n•\tPutusan tingkat banding dapat dikasasi ke Mahkamah Agung.\nKewenangan\n1.\tMengadili tindak pidana pada tingkat pertama yang dilakukan oleh prajurit atau yang dipersamakan berpangkat Mayor ke atas.\n2.\tMengadili perkara pidana pada tingkat banding atas putusan Pengadilan Militer.\n3.\tMemeriksa dan memutus sengketa Tata Usaha Angkatan Bersenjata pada tingkat pertama (sesuai ketentuan undang-undang).\n4.\tMengadili pada tingkat pertama dan terakhir sengketa kewenangan mengadili antar-Pengadilan Militer dalam daerah hukumnya.\n5.\tMengawasi jalannya peradilan di Pengadilan Militer dalam daerah hukumnya.\n6.\tMenggabungkan perkara gugatan ganti rugi dalam perkara pidana apabila diminta.\nB. Pengadilan Militer Utama\nKedudukan\nPengadilan Militer Utama adalah badan peradilan militer tertinggi di bawah Mahkamah Agung. Pengadilan ini berkedudukan di Jakarta dengan daerah hukum meliputi seluruh wilayah Indonesia. Pembinaannya sama seperti peradilan militer lainnya, yaitu teknis peradilan di bawah MA dan aspek organisasi, administrasi, serta keuangan yang dialihkan bertahap dari Mabes TNI ke MA.\nSusunannya terdiri atas kepala (ketua), hakim militer utama, panitera, dan unsur pendukung lain.\nTingkat Peradilan\nPengadilan Militer Utama berada pada tingkat banding, di atas Pengadilan Militer Tinggi:\n1.\tPengadilan Militer / Pengadilan Militer Tinggi (tingkat pertama)\n2.\tPengadilan Militer Tinggi (banding atas putusan Pengadilan Militer)\n3.\tPengadilan Militer Utama (banding atas putusan Pengadilan Militer Tinggi pada tingkat pertama)\n4.\tMahkamah Agung (kasasi dan peninjauan kembali)\nKewenangan\n1.\tMengadili perkara pidana pada tingkat banding atas putusan Pengadilan Militer Tinggi yang diputus pada tingkat pertama.\n2.\tMengadili sengketa Tata Usaha Angkatan Bersenjata pada tingkat banding.\n3.\tMengadili pada tingkat pertama dan terakhir sengketa kewenangan mengadili antar-Pengadilan Militer Tinggi, antara Pengadilan Militer Tinggi dan Pengadilan Militer di daerah hukum berbeda, serta antara pengadilan militer dan pengadilan di lingkungan lain tertentu menurut undang-undang.\n4.\tMemberikan pertimbangan hukum kepada Panglima TNI atau instansi terkait apabila diminta.\n5.\tMengawasi jalannya peradilan di seluruh badan peradilan militer di bawahnya."},"dilmil":{"title":"Pengadilan Militer (Dilmil)","kicker":"Teks sumber · Pengadilan Militer Kapten ke bawah","text":"B. Pengadilan Militer (Kapten ke bawah)\nKedudukan\nPengadilan Militer adalah badan peradilan militer tingkat pertama, setara dengan Pengadilan Negeri di peradilan umum. Kedudukan dan daerah hukumnya ditetapkan dengan keputusan Panglima TNI, umumnya di wilayah kodam atau kota-kota tertentu (misalnya Jakarta, Bandung, Yogyakarta, Surabaya, dan Medan). Pembinaannya sama dengan badan peradilan militer lainnya.\nSusunannya terdiri atas kepala (ketua), hakim militer, panitera, dan unsur pendukung lain.\nTingkat Peradilan\nPengadilan Militer adalah pengadilan tingkat pertama:\n1.\tPengadilan Militer (tingkat pertama, Kapten ke bawah)\n2.\tPengadilan Militer Tinggi (banding)\n3.\tMahkamah Agung (kasasi dan peninjauan kembali)\nPutusan Pengadilan Militer dapat diajukan banding ke Pengadilan Militer Tinggi.\nKewenangan\n1.\tMengadili tindak pidana pada tingkat pertama yang dilakukan prajurit atau yang dipersamakan berpangkat Kapten ke bawah.\n2.\tMemeriksa dan memutus sengketa Tata Usaha Angkatan Bersenjata sebagai perkara yang diajukan melalui mekanisme yang ditentukan undang-undang.\n3.\tMenggabungkan gugatan ganti rugi dalam perkara pidana apabila diminta.\n4.\tMemeriksa perkara berdasarkan penyerahan dari Papera dan dakwaan Oditur Militer."},"miltempur":{"title":"Pengadilan Militer Pertempuran","kicker":"Teks sumber · Pengadilan Militer Pertempuran","text":"\tPENGADILAN MILITER PERTEMPURAN\nPengadilan Militer Pertempuran diatur dalam Pasal 12 dan Pasal 13 UU No. 31 Tahun 1997 tentang Peradilan Militer, serta UU No. 48 Tahun 2009 tentang Kekuasaan Kehakiman. Pengadilan ini merupakan salah satu dari empat badan peradilan dalam lingkungan peradilan militer.\nKedudukan\nPengadilan Militer Pertempuran adalah pengadilan khusus yang bersifat sementara (ad hoc) dalam lingkungan peradilan militer. Pengadilan ini tidak permanen, melainkan dibentuk hanya ketika diperlukan untuk mengadili tindak pidana yang dilakukan prajurit di daerah pertempuran.\nPengadilan ini bersifat mobile, artinya dapat bergerak mengikuti kesatuan tempur. Pembentukannya dilakukan oleh Panglima TNI dengan keputusan tersendiri, yang juga menetapkan daerah hukum dan masa berlakunya. Pengadilan ini berada di bawah Mahkamah Agung dalam hal teknis peradilan.\nSusunannya terdiri atas hakim militer, panitera, dan unsur pendukung lain yang ditunjuk sesuai kebutuhan.\nTingkat Peradilan\nPengadilan Militer Pertempuran memiliki posisi yang berbeda dari pengadilan militer lain, karena memeriksa dan memutus perkara pada tingkat pertama dan terakhir:\n1.\tPengadilan Militer Pertempuran (tingkat pertama dan terakhir)\n2.\tMahkamah Agung (kasasi)\nTidak ada tingkat banding. Putusannya langsung dapat diajukan kasasi ke Mahkamah Agung, sehingga prosesnya lebih cepat sesuai kebutuhan situasi pertempuran.\nKewenangan\n1.\tMengadili tindak pidana yang dilakukan oleh prajurit atau yang dipersamakan di daerah pertempuran, tanpa memandang pangkat terdakwa.\n2.\tMemeriksa dan memutus perkara pada tingkat pertama dan terakhir, kemudian putusannya dapat dikasasi ke MA.\n3.\tMenyelenggarakan persidangan secara cepat dan sederhana, mengingat kondisi operasi militer.\nCatatan Tambahan\n•\tBerbeda dengan Pengadilan Militer (Kapten ke bawah) dan Pengadilan Militer Tinggi (Mayor ke atas), kewenangan Pengadilan Militer Pertempuran tidak ditentukan oleh pangkat, melainkan oleh tempat dan situasi (daerah pertempuran).\n•\tPembentukannya bergantung pada keputusan Panglima TNI, sehingga dalam praktiknya pengadilan ini jarang atau hampir tidak pernah dibentuk secara nyata.\n•\tSetelah pertempuran selesai dan masa berlakunya berakhir, pengadilan ini dibubarkan.\n•\tHukum acara yang dipakai tetap mengacu pada UU No. 31 Tahun 1997, dengan penyesuaian untuk kondisi pertempuran.\n•\tSeperti peradilan militer lainnya, Papera, Ankum, dan Oditur Militer tetap berperan dalam proses perkara."},"tun":{"title":"Lingkungan Peradilan Tata Usaha Negara","kicker":"Teks sumber · Peradilan TUN","text":"\tPERADILAN TATA USAHA NEGARA (TUN)\nPeradilan Tata Usaha Negara (TUN) diatur dalam Pasal 24 UUD 1945, serta UU No. 5 Tahun 1986 tentang Peradilan Tata Usaha Negara, yang telah diubah dengan UU No. 9 Tahun 2004 dan UU No. 51 Tahun 2009. Selain itu, UU No. 30 Tahun 2014 tentang Administrasi Pemerintahan memperluas pengertian keputusan dan tindakan pemerintahan yang dapat disengketakan.\nKedudukan\nPeradilan TUN adalah salah satu lingkungan peradilan di bawah Mahkamah Agung dan merupakan pelaksana kekuasaan kehakiman bagi rakyat pencari keadilan terhadap sengketa tata usaha negara, yaitu sengketa antara orang atau badan hukum perdata dengan badan atau pejabat TUN akibat dikeluarkannya keputusan TUN.\nFungsi utamanya adalah mengontrol tindakan pemerintah (judicial control) dan melindungi warga dari penyalahgunaan wewenang. Pembinaan teknis peradilan, organisasi, administrasi, dan keuangannya berada di bawah MA (sistem satu atap). Hakim diangkat dan diberhentikan oleh Presiden atas usul Ketua MA.\nTingkat Peradilan\nPeradilan TUN terdiri atas tiga tingkat:\n1.\tPengadilan Tata Usaha Negara (PTUN): tingkat pertama, berkedudukan di ibu kota kabupaten/kota atau kota tertentu dengan daerah hukum meliputi wilayah kabupaten/kota atau beberapa kabupaten/kota.\n2.\tPengadilan Tinggi Tata Usaha Negara (PT TUN): tingkat banding, berkedudukan di ibu kota provinsi atau kota tertentu dengan daerah hukum meliputi satu atau beberapa provinsi.\n3.\tMahkamah Agung: tingkat kasasi dan peninjauan kembali.\nDalam lingkungan peradilan TUN dapat dibentuk pengadilan khusus, misalnya Pengadilan Pajak (pembinaan teknis di MA, organisasi dan keuangan di Kementerian Keuangan).\nKewenangan\nPTUN berwenang:\n1.\tMemeriksa, memutus, dan menyelesaikan sengketa TUN pada tingkat pertama.\n2.\tMemeriksa gugatan atas keputusan fiktif-negatif, yaitu sikap diam pejabat yang tidak mengeluarkan keputusan yang dimohonkan.\n3.\tMemeriksa permohonan menilai ada atau tidaknya unsur penyalahgunaan wewenang dalam keputusan atau tindakan pejabat pemerintahan (UU No. 30 Tahun 2014).\n4.\tMemeriksa gugatan perbuatan melanggar hukum oleh pemerintah (onrechtmatige overheidsdaad), berdasarkan Perma No. 2 Tahun 2019.\n5.\tMenyelesaikan sengketa proses pemilu (administratif), terhadap keputusan KPU tentang penetapan peserta dan daftar calon tetap, setelah upaya administratif di Bawaslu.\n6.\tMemutus pada tingkat pertama dan terakhir perkara tertentu yang ditentukan undang-undang, misalnya sengketa pemilu proses di tingkat PT TUN.\nPT TUN berwenang:\n1.\tMengadili sengketa TUN pada tingkat banding.\n2.\tMengadili pada tingkat pertama dan terakhir sengketa kewenangan mengadili antar-PTUN dalam daerah hukumnya.\n3.\tMengadili sengketa TUN yang gugatannya diajukan setelah upaya administratif, sebagai pengadilan tingkat pertama (misalnya keputusan yang telah diproses melalui banding administratif).\nObjek Sengketa\nObjek sengketa TUN adalah Keputusan TUN (beschikking), yaitu penetapan tertulis yang dikeluarkan badan atau pejabat TUN yang berisi tindakan hukum TUN berdasarkan peraturan perundang-undangan, bersifat konkret, individual, dan final, serta menimbulkan akibat hukum bagi seseorang atau badan hukum perdata. Sejak UU No. 30 Tahun 2014, pengertiannya diperluas mencakup keputusan yang berpotensi menimbulkan akibat hukum, keputusan fiktif-positif, dan tindakan faktual pemerintah.\nYang tidak termasuk keputusan TUN antara lain: tindakan hukum perdata, pengaturan yang bersifat umum, keputusan yang masih memerlukan persetujuan, keputusan berdasarkan KUHP/KUHAP, keputusan atas hasil pemeriksaan badan peradilan, keputusan TUN di bidang TNI, keputusan KPU tentang hasil pemilu, dan keputusan yang berkaitan dengan keadaan darurat."},"pttun":{"title":"Pengadilan Tinggi TUN (PT TUN)","kicker":"Teks sumber · Pengadilan Tinggi TUN","text":"\tPengadilan Tinggi TUN (PT TUN)\nPengadilan Tinggi Tata Usaha Negara (PT TUN) adalah badan peradilan dalam lingkungan Peradilan Tata Usaha Negara yang diatur dalam Undang-Undang Nomor 5 Tahun 1986 tentang Peradilan Tata Usaha Negara, sebagaimana telah diubah dengan UU No. 9 Tahun 2004 dan UU No. 51 Tahun 2009.\nKedudukan\nPT TUN merupakan pengadilan yang berada dalam lingkungan kekuasaan kehakiman di bawah Mahkamah Agung (MA). PT TUN berkedudukan sebagai pengadilan tingkat banding yang memeriksa dan memutus perkara tata usaha negara yang diajukan oleh pihak yang tidak puas terhadap putusan Pengadilan Tata Usaha Negara (PTUN). Keberadaan PT TUN bertujuan memberikan perlindungan hukum kepada masyarakat dalam sengketa dengan badan atau pejabat pemerintahan serta memastikan bahwa keputusan dan tindakan pemerintahan sesuai dengan peraturan perundang-undangan.\nTingkat Peradilan\nPT TUN pada umumnya memiliki kedudukan sebagai pengadilan tingkat kedua atau tingkat banding. Artinya, PT TUN memeriksa kembali perkara yang sebelumnya telah diputus oleh PTUN. Apabila salah satu pihak tidak puas terhadap putusan PT TUN, pihak tersebut dapat mengajukan kasasi ke Mahkamah Agung sesuai dengan ketentuan hukum yang berlaku.\nNamun, PT TUN juga dapat bertindak sebagai pengadilan tingkat pertama untuk sengketa tata usaha negara tertentu yang berkaitan dengan upaya administratif sebagaimana diatur dalam Pasal 51 ayat (3) UU Peradilan TUN. Dalam sengketa kewenangan mengadili antara PTUN di wilayah hukumnya, PT TUN bertindak sebagai pengadilan tingkat pertama dan terakhir.\nKewenangan\nBerdasarkan Pasal 51 UU No. 5 Tahun 1986 tentang Peradilan Tata Usaha Negara, PT TUN memiliki beberapa kewenangan, yaitu:\n1.\tMemeriksa dan memutus perkara pada tingkat banding, yaitu memeriksa kembali putusan PTUN yang diajukan melalui upaya hukum banding.\n2.\tMemutus sengketa kewenangan mengadili antara PTUN, khususnya PTUN yang berada dalam wilayah hukumnya. Dalam perkara ini, PT TUN bertindak sebagai pengadilan tingkat pertama dan terakhir.\n3.\tMemeriksa, memutus, dan menyelesaikan sengketa TUN pada tingkat pertama yang berkaitan dengan upaya administratif sebagaimana dimaksud dalam Pasal 48 UU Peradilan TUN.\n4.\tMelakukan pengawasan terhadap jalannya peradilan di lingkungan PTUN dalam wilayah hukumnya, sesuai dengan ketentuan peraturan perundang-undangan.\nCatatan Tambahan\n•\tPT TUN merupakan bagian dari lingkungan Peradilan Tata Usaha Negara yang berpuncak pada Mahkamah Agung.\n•\tPTUN merupakan pengadilan tingkat pertama pada umumnya, sedangkan PT TUN merupakan pengadilan tingkat banding.\n•\tTidak semua sengketa TUN harus melalui PT TUN sebagai pengadilan tingkat banding. Untuk sengketa tertentu yang berkaitan dengan upaya administratif, PT TUN dapat berwenang memeriksa perkara pada tingkat pertama.\n•\tPengujian peraturan perundang-undangan di bawah undang-undang terhadap undang-undang merupakan kewenangan Mahkamah Agung, bukan PT TUN.\nDasar hukum utama: Pasal 24 UUD 1945 dan Pasal 51 UU No. 5 Tahun 1986 tentang Peradilan Tata Usaha Negara, sebagaimana diubah dengan UU No. 9 Tahun 2004 dan UU No. 51 Tahun 2009."},"ptun":{"title":"Pengadilan TUN (PTUN)","kicker":"Teks sumber · Pengadilan TUN","text":"\tPengadilan TUN (PTUN)\nPengadilan Tata Usaha Negara (PTUN) adalah badan peradilan dalam lingkungan Peradilan Tata Usaha Negara yang diatur dalam Undang-Undang Nomor 5 Tahun 1986 tentang Peradilan Tata Usaha Negara, sebagaimana telah diubah dengan UU No. 9 Tahun 2004 dan UU No. 51 Tahun 2009.\nKedudukan\nPTUN merupakan pengadilan tingkat pertama dalam lingkungan Peradilan Tata Usaha Negara yang berada di bawah Mahkamah Agung (MA). PTUN bertugas memeriksa, memutus, dan menyelesaikan sengketa tata usaha negara antara orang atau badan hukum perdata dengan badan atau pejabat pemerintahan akibat dikeluarkannya keputusan tata usaha negara atau tindakan pemerintahan yang menimbulkan kerugian bagi pihak tertentu. Keberadaan PTUN bertujuan memberikan perlindungan hukum kepada masyarakat serta memastikan agar penyelenggaraan pemerintahan berjalan sesuai dengan peraturan perundang-undangan dan asas-asas umum pemerintahan yang baik (AUPB).\nTingkat Peradilan\nPTUN merupakan pengadilan tingkat pertama, yaitu pengadilan yang pertama kali memeriksa dan memutus sengketa tata usaha negara yang menjadi kewenangannya. Apabila salah satu pihak tidak puas terhadap putusan PTUN, pihak tersebut pada umumnya dapat mengajukan upaya hukum banding ke Pengadilan Tinggi Tata Usaha Negara (PT TUN). Selanjutnya, putusan PT TUN dapat dimohonkan kasasi ke Mahkamah Agung sesuai dengan ketentuan yang berlaku.\nNamun, pengajuan perkara ke PTUN harus memperhatikan ketentuan mengenai kewenangan absolut, tenggang waktu pengajuan gugatan, serta kewajiban menempuh upaya administratif apabila diwajibkan oleh peraturan perundang-undangan.\nKewenangan\nBerdasarkan UU No. 5 Tahun 1986 tentang Peradilan Tata Usaha Negara beserta perubahannya, PTUN memiliki beberapa kewenangan, yaitu:\n1.\tMemeriksa, memutus, dan menyelesaikan sengketa tata usaha negara, yaitu sengketa dalam bidang administrasi pemerintahan antara orang atau badan hukum perdata dengan badan atau pejabat pemerintahan.\n2.\tMemeriksa gugatan terhadap keputusan tata usaha negara, apabila keputusan tersebut memenuhi kriteria objek sengketa yang dapat diperiksa oleh PTUN berdasarkan peraturan perundang-undangan.\n3.\tMemeriksa sengketa mengenai tindakan pemerintahan, sesuai dengan perluasan kompetensi Peradilan TUN dalam peraturan perundang-undangan dan hukum acara yang berlaku.\n4.\tMemberikan perlindungan hukum kepada masyarakat terhadap keputusan atau tindakan badan dan pejabat pemerintahan yang dianggap bertentangan dengan hukum atau asas-asas umum pemerintahan yang baik.\n5.\tMenjatuhkan putusan terhadap sengketa yang menjadi kewenangannya, termasuk menyatakan batal atau tidak sah suatu keputusan administrasi pemerintahan apabila syarat hukum untuk itu terpenuhi, serta menetapkan kewajiban tertentu kepada badan atau pejabat pemerintahan sesuai dengan ketentuan hukum.\nCatatan Tambahan\n•\tPTUN merupakan pengadilan tingkat pertama dalam lingkungan Peradilan Tata Usaha Negara, sedangkan PT TUN pada umumnya berfungsi sebagai pengadilan tingkat banding.\n•\tPTUN berada di bawah Mahkamah Agung, bukan di bawah lembaga eksekutif atau pemerintah daerah.\n•\tTidak semua keputusan atau tindakan pemerintah dapat langsung digugat ke PTUN. Objek sengketa, kewenangan pengadilan, tenggang waktu, dan persyaratan upaya administratif harus diperhatikan.\n•\tSengketa yang berkaitan dengan keputusan atau tindakan pemerintahan tertentu dapat tunduk pada prosedur khusus berdasarkan undang-undang yang mengaturnya."}};
+
+    const dialog = document.querySelector("#detail-dialog");
+    const dialogTitle = document.querySelector("#dialog-title");
+    const dialogKicker = document.querySelector("#dialog-kicker");
+    const dialogContent = document.querySelector("#dialog-content");
+    const closeButton = document.querySelector(".modal-close");
+
+    function makeBlock(heading, value, list = false) {
+      const section = document.createElement("section");
+      section.className = "detail-block";
+      const title = document.createElement("h3");
+      title.textContent = heading;
+      section.append(title);
+      if (list) {
+        const ul = document.createElement("ul");
+        value.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          ul.append(li);
+        });
+        section.append(ul);
+      } else {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = value;
+        section.append(paragraph);
+      }
+      return section;
+    }
+
+    function openDetails(id, trigger) {
+      const detail = sourceData[id];
+      if (!detail) return;
+      dialogTitle.textContent = detail.title;
+      dialogKicker.textContent = detail.kicker;
+      const sourceCopy = document.createElement("div");
+      sourceCopy.className = "source-copy";
+      const headingPattern = /^(?:Kedudukan|Tingkat Peradilan|Kewenangan|Kewenangan utama Komisi Yudisial meliputi|Kewenangan dan Jenis Pengadilan Khusus|Catatan Tambahan|Contoh Perkara|Objek Sengketa|Empat kewenangan(?: MK)?(?: adalah)?|Satu kewajiban|Pengadilan Negeri|Pengadilan Tinggi):?$/i;
+      detail.text.split("\n").forEach((line, index, lines) => {
+        const label = line.trim();
+        const isHeading = headingPattern.test(label) || /^[A-Z]\.\s/.test(label) || (label.length > 5 && label === label.toLocaleUpperCase());
+        if (isHeading) {
+          const strong = document.createElement("strong");
+          strong.className = "source-heading";
+          strong.textContent = line;
+          sourceCopy.append(strong);
+        } else {
+          const marker = line.match(/^(\s*(?:\d+\.\s+|\u2022\s*))/);
+          if (marker) {
+            const strong = document.createElement("strong");
+            strong.className = "source-marker";
+            strong.textContent = marker[0];
+            sourceCopy.append(strong, document.createTextNode(line.slice(marker[0].length)));
+          } else {
+            sourceCopy.append(document.createTextNode(line));
+          }
+        }
+        if (index < lines.length - 1) sourceCopy.append(document.createElement("br"));
+      });
+      dialogContent.replaceChildren(sourceCopy);
+      if (typeof dialog.showModal === "function") dialog.showModal();
+      else dialog.setAttribute("open", "");
+      closeButton.focus();
+      dialog.dataset.triggerId = trigger?.dataset.detail || "";
+    }
+    document.querySelectorAll("[data-detail]").forEach((node) => {
+      node.addEventListener("click", () => openDetails(node.dataset.detail, node));
+    });
+    closeButton.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener("close", () => {
+      const previous = document.querySelector(`[data-detail="${dialog.dataset.triggerId}"]`);
+      previous?.focus();
+    });
+  </script>
+</body>
+</html>
